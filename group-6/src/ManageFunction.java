@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
 
 public class ManageFunction {
 
@@ -28,13 +30,13 @@ public class ManageFunction {
         System.out.print("请输入你要修改的图书id：");
         int n;
         n = input.nextInt();
-        System.out.println(books[n-1].getBooknum() + "  " + books[n-1].getBookName() + "  " + books[n-1].getWriter());
+        System.out.println(books[n - 1].getBooknum() + " " + books[n - 1].getBookName() + " " + books[n - 1].getWriter());
         System.out.print("请输入更新的图书名称：");
         String s1 = input.next();
-        System.out.print("请输入更新的编者：");
+        System.out.print("请输入更新的作者：");
         String s2 = input.next();
-        books[n-1].setBookName(s1);
-        books[n-1].setWriter(s2);
+        books[n - 1].setBookName(s1);
+        books[n - 1].setWriter(s2);
         return books;
     }
 
