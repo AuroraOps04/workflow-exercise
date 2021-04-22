@@ -96,6 +96,15 @@ void InputBookInfo() {   //添加图书信息
 	system("cls");
 }
 
+void ShowData(Node* p,int bookNo){
+    printf("************第%d本图书************", bookNo);
+	printf("\n");
+	printf("\t书名：    %-20s\n", p->info.name);
+	printf("\t作者名：  %-20s\n", p->info.author);
+	printf("\t出版社：  %-20s\n", p->info.publisher);
+	printf("\t出版日期：%-20s\n", p->info.date);
+	printf("\t价格：    %-20s\n", p->info.price);
+}
 
 void PrintBookInfo() { //打印图书信息
 	Node* p = head;
@@ -104,13 +113,7 @@ void PrintBookInfo() { //打印图书信息
 		printf("系统中暂无图书信息，请确认名称是否正确");
 	else {
 		while (p != NULL) {
-			printf("************第%d本图书************", count);
-			printf("\n");
-			printf("\t书名：    %-20s\n", p->info.name);
-			printf("\t作者名：  %-20s\n", p->info.author);
-			printf("\t出版社：  %-20s\n", p->info.publisher);
-			printf("\t出版日期：%-20s\n", p->info.date);
-			printf("\t价格：    %-20s\n", p->info.price);
+			ShowData(p,count);
 			p = p->next;
 			count++;
 		}
