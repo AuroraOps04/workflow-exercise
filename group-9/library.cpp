@@ -124,6 +124,32 @@ void PrintBookInfo() { //打印图书信息
 	system("cls");
 }
 void RecommendBook() { //推荐图书信息
+	int a = rand() % 10;
+	Node* p = head;
+	bool flag = false;
+	int i = 1;
+	if (p == NULL)
+		printf("系统中暂无图书信息，请确认名称是否正确");
+	else {
+		while (p != NULL) {
+			if (a == i) {
+				flag = true;
+				ShowData(p,i);
+				p = p->next;
+				i++;
+			} else {
+				p = p->next;
+				i++;
+			}
+		}
+		if (!false) {
+			printf("暂无推荐图书！");
+		}
+		printf("输入任意键返回菜单\n");
+		getchar();
+	}
+	system("pause");
+	system("cls");
 }
 void Locate_BookInfo_name() { //按书名查找
 }
