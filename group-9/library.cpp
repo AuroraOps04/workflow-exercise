@@ -96,6 +96,15 @@ void InputBookInfo() {   //添加图书信息
 	system("cls");
 }
 
+void ShowData(Node* p,int bookNo){
+    printf("************第%d本图书************", bookNo);
+	printf("\n");
+	printf("\t书名：    %-20s\n", p->info.name);
+	printf("\t作者名：  %-20s\n", p->info.author);
+	printf("\t出版社：  %-20s\n", p->info.publisher);
+	printf("\t出版日期：%-20s\n", p->info.date);
+	printf("\t价格：    %-20s\n", p->info.price);
+}
 
 void PrintBookInfo() { //打印图书信息
 	Node* p = head;
@@ -104,13 +113,7 @@ void PrintBookInfo() { //打印图书信息
 		printf("系统中暂无图书信息，请确认名称是否正确");
 	else {
 		while (p != NULL) {
-			printf("************第%d本图书************", count);
-			printf("\n");
-			printf("\t书名：    %-20s\n", p->info.name);
-			printf("\t作者名：  %-20s\n", p->info.author);
-			printf("\t出版社：  %-20s\n", p->info.publisher);
-			printf("\t出版日期：%-20s\n", p->info.date);
-			printf("\t价格：    %-20s\n", p->info.price);
+			ShowData(p,count);
 			p = p->next;
 			count++;
 		}
@@ -121,13 +124,100 @@ void PrintBookInfo() { //打印图书信息
 	system("cls");
 }
 void RecommendBook() { //推荐图书信息
+	int a = rand() % 10;
+	Node* p = head;
+	bool flag = false;
+	int i = 1;
+	if (p == NULL)
+		printf("系统中暂无图书信息，请确认名称是否正确");
+	else {
+		while (p != NULL) {
+			if (a == i) {
+				flag = true;
+				ShowData(p,i);
+				p = p->next;
+				i++;
+			} else {
+				p = p->next;
+				i++;
+			}
+		}
+		if (!false) {
+			printf("暂无推荐图书！");
+		}
+		printf("输入任意键返回菜单\n");
+		getchar();
+	}
+	system("pause");
+	system("cls");
 }
 void Locate_BookInfo_name() { //按书名查找
+int flag = 0;
+	char name[20];
+	Node* p = head;
+	printf("请输入您需要查询的书名：");
+	scanf("%s", name);
+	printf("\n");
+	printf("输入成功！\n");
+	printf("以下是您查找的信息：\n");
+	while (p != NULL) {
+		if (strcmp(p->info.name, name) == 0) {
+			printf("书名:    %-20s\n", p->info.name);
+			printf("作者名:  %-20s\n", p->info.author);
+			printf("出版社:  %-20s\n", p->info.publisher);
+			printf("出版日期:%-20s\n", p->info.date);
+			printf("价格:    %-20s\n", p->info.price);
+			printf("\n");
+			flag = 1;
+			p = p->next;
+		} else {
+			p = p->next;
+		}
+	}
+	if (flag == 0) {
+		printf("没有该书名的信息\n");
+		printf("输入任意键返回菜单\n");
+		getchar();
+	}
+	system("pause");
+	system("cls");
 }
 void Locate_BookInfo_author() { //按作者查找
+int flag = 0;
+	char author[20];
+	Node* p = head;
+	printf("请输入您需要查询的作者名：");
+	scanf("%s", author);
+	printf("\n");
+	printf("输入成功！\n");
+	printf("以下是您查找的信息：\n");
+	printf("\n");
+	while (p != NULL) {
+		if (strcmp(p->info.author, author) == 0) {
+			printf("书名:    %-20s\n", p->info.name);
+			printf("作者名:  %-20s\n", p->info.author);
+			printf("出版社:  %-20s\n", p->info.publisher);
+			printf("出版日期:%-20s\n", p->info.date);
+			printf("价格:    %-20s\n", p->info.price);
+			printf("\n");
+			flag = 1;
+			p = p->next;
+		} else {
+			p = p->next;
+		}
+	}
+	if (flag == 0) {
+		printf("没有该作者的信息\n");
+		printf("\n");
+		printf("输入任意键返回菜单\n");
+		getchar();
+	}
+	system("pause");
+	system("cls");
 }
 void ChangeBookInfo() { //修改图书信息
 	char name[20];
+  char name[20];
 	printf("请输入需要修改的图书名：\n");
 	scanf("%s", name);
 	Node* p = head;
@@ -164,7 +254,47 @@ void ChangeBookInfo() { //修改图书信息
 	system("pause");
 	system("cls");
 }
-void DeletBookInfo() { //删除图书信息
+void DeletBookInfo() {//删除图书信息
+	char name[20];
+	printf("请输入需要删除的图书名：\n");
+	scanf("%s", name);
+	printf("\n");
+	Node* p = head;
+	Node* q = head;
+	Node* s = (Node*)malloc(sizeof(Node));
+	int flag = 0;
+	while (p != NULL) {
+		if (strcmp(p->info.name, name) == 0) {
+			printf("书名:    %-20s\n", p->info.name);
+			printf("作者名:  %-20s\n", p->info.author);
+			printf("出版社:  %-20s\n", p->info.publisher);
+			printf("出版日期:%-20s\n", p->info.date);
+			printf("价格:    %-20s\n", p->info.price);
+			printf("\n");
+			flag = 1;
+
+			if (p == head) {
+				head = p->next;
+			} else if (p->next == NULL) {
+				p = q;
+				p->next = NULL;
+			} else {
+				q->next = p->next;
+			}
+
+		}
+		q = p;
+		p = p->next;
+	}
+	if (flag == 0) {
+		printf("没有该书名的信息\n");
+		printf("\n");
+		printf("输入任意键返回菜单\n");
+		printf("\n");
+		getchar();
+	}
+	system("pause");
+	system("cls");
 }
 void ExitBookInfo() { //退出图书管理系统
 	printf("正在退出……\n");
