@@ -157,7 +157,47 @@ void Locate_BookInfo_author() { //按作者查找
 }
 void ChangeBookInfo() { //修改图书信息
 }
-void DeletBookInfo() { //删除图书信息
+void DeletBookInfo() {//删除图书信息
+	char name[20];
+	printf("请输入需要删除的图书名：\n");
+	scanf("%s", name);
+	printf("\n");
+	Node* p = head;
+	Node* q = head;
+	Node* s = (Node*)malloc(sizeof(Node));
+	int flag = 0;
+	while (p != NULL) {
+		if (strcmp(p->info.name, name) == 0) {
+			printf("书名:    %-20s\n", p->info.name);
+			printf("作者名:  %-20s\n", p->info.author);
+			printf("出版社:  %-20s\n", p->info.publisher);
+			printf("出版日期:%-20s\n", p->info.date);
+			printf("价格:    %-20s\n", p->info.price);
+			printf("\n");
+			flag = 1;
+
+			if (p == head) {
+				head = p->next;
+			} else if (p->next == NULL) {
+				p = q;
+				p->next = NULL;
+			} else {
+				q->next = p->next;
+			}
+
+		}
+		q = p;
+		p = p->next;
+	}
+	if (flag == 0) {
+		printf("没有该书名的信息\n");
+		printf("\n");
+		printf("输入任意键返回菜单\n");
+		printf("\n");
+		getchar();
+	}
+	system("pause");
+	system("cls");
 }
 void ExitBookInfo() { //退出图书管理系统
 	printf("正在退出……\n");
