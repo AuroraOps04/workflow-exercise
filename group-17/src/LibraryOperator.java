@@ -5,16 +5,19 @@ import java.util.Set;
 
 public class LibraryOperator {
     Scanner scanner = new Scanner(System.in);
+
+    //初始化“图书馆”
     InitializeBooks map = new InitializeBooks();
+
     //浏览
     public void scanBooks() {
-        if(!map.books.isEmpty()) {
-            Iterator it = map.books.entrySet().iterator();
-            while (it.hasNext()) {
-                Map.Entry obj = (Map.Entry) it.next();
-                System.out.println("ID: "+obj.getKey()+" 书名："+obj.getValue());
-            }
-        }
+//        if(!map.books.isEmpty()) {
+//            Iterator it = map.books.entrySet().iterator();
+//            while (it.hasNext()) {
+//                Map.Entry obj = (Map.Entry) it.next();
+//                System.out.println("ID: "+obj.getKey()+" 书名："+obj.getValue());
+//            }
+//        }
     }
     //增加
     public void addBook(){
