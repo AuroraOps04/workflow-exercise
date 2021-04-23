@@ -23,5 +23,26 @@ public class ConSql {
         }
         return false;
     }
+    public void SearchSql(String bookname) {
+        try{
+            Statement statement = con.createStatement();
+
+            String sql = "select * from books;";
+
+            ResultSet resultSet = statement.executeQuery(sql);
+            String name;
+            int id;
+            while (resultSet.next()) {
+                id = resultSet.getInt("bookid");
+                name = resultSet.getString("bookname");
+
+                System.out.println("id: "+id+" 书名：" + name);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+
 
 }
