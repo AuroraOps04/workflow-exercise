@@ -216,7 +216,8 @@ int flag = 0;
 	system("cls");
 }
 void ChangeBookInfo() { //修改图书信息
-char name[20];
+	char name[20];
+  char name[20];
 	printf("请输入需要修改的图书名：\n");
 	scanf("%s", name);
 	Node* p = head;
