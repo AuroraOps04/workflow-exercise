@@ -8,13 +8,13 @@ public class LibraryOperator {
 
     //浏览
     public void scanBooks() {
-//        if(!map.books.isEmpty()) {
-//           Iterator it = map.books.entrySet().iterator();
-//           while (it.hasNext()) {
-//                Map.Entry obj = (Map.Entry) it.next();
-//                System.out.println("ID: "+obj.getKey()+" 书名："+obj.getValue());
-//            }
-//       }
+        if(!map.books.isEmpty()) {
+           Iterator it = map.books.entrySet().iterator();
+           while (it.hasNext()) {
+                Map.Entry obj = (Map.Entry) it.next();
+                System.out.println("ID: "+obj.getKey()+" 书名："+obj.getValue());
+            }
+       }
     }
     //增加
     public void addBook(){
@@ -32,6 +32,18 @@ public class LibraryOperator {
     }
     //删除
     public void delBook(){
+        System.out.println("请输入要删除书的ID：");
+        String ID = scanner.next();
+        System.out.println("请输入要删除书的书名：");
+        String name= scanner.next();
+
+        if(map.books.containsKey(ID)){
+            map.books.remove(ID,name);
+            System.out.println("删除成功");
+        }
+        else{
+            System.out.println("删除失败");
+        }
 
     }
     //修改
