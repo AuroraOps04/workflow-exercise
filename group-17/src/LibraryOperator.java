@@ -1,7 +1,4 @@
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class LibraryOperator {
     Scanner scanner = new Scanner(System.in);
@@ -43,6 +40,9 @@ public class LibraryOperator {
     }
     //推荐
     public void redBook(){
-
+        System.out.println("系统为您推荐的书目为:");
+        Random random = new Random();
+        String ID = String.valueOf(random.nextInt(map.books.size())+1);
+        System.out.println("ID: "+ ID + " 书名："+ map.books.get(ID));
     }
 }
