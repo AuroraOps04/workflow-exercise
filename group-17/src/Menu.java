@@ -20,7 +20,7 @@ public class Menu {
                     libraryOperator.scanBooks();
                     break;
                 case 1:
-                    libraryOperator.sddBook();
+                    libraryOperator.addBook();
                     break;
                 case 2:
 
