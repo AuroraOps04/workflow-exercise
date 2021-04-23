@@ -23,11 +23,9 @@ public class Menu {
                     libraryOperator.addBook();
                     break;
                 case 2:
-
                     libraryOperator.delBook();
                     break;
                 case 3:
-
                     libraryOperator.modBook();
                     break;
                 case 4:
