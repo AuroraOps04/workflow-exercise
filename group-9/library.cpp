@@ -152,10 +152,106 @@ void RecommendBook() { //推荐图书信息
 	system("cls");
 }
 void Locate_BookInfo_name() { //按书名查找
+int flag = 0;
+	char name[20];
+	Node* p = head;
+	printf("请输入您需要查询的书名：");
+	scanf("%s", name);
+	printf("\n");
+	printf("输入成功！\n");
+	printf("以下是您查找的信息：\n");
+	while (p != NULL) {
+		if (strcmp(p->info.name, name) == 0) {
+			printf("书名:    %-20s\n", p->info.name);
+			printf("作者名:  %-20s\n", p->info.author);
+			printf("出版社:  %-20s\n", p->info.publisher);
+			printf("出版日期:%-20s\n", p->info.date);
+			printf("价格:    %-20s\n", p->info.price);
+			printf("\n");
+			flag = 1;
+			p = p->next;
+		} else {
+			p = p->next;
+		}
+	}
+	if (flag == 0) {
+		printf("没有该书名的信息\n");
+		printf("输入任意键返回菜单\n");
+		getchar();
+	}
+	system("pause");
+	system("cls");
 }
 void Locate_BookInfo_author() { //按作者查找
+int flag = 0;
+	char author[20];
+	Node* p = head;
+	printf("请输入您需要查询的作者名：");
+	scanf("%s", author);
+	printf("\n");
+	printf("输入成功！\n");
+	printf("以下是您查找的信息：\n");
+	printf("\n");
+	while (p != NULL) {
+		if (strcmp(p->info.author, author) == 0) {
+			printf("书名:    %-20s\n", p->info.name);
+			printf("作者名:  %-20s\n", p->info.author);
+			printf("出版社:  %-20s\n", p->info.publisher);
+			printf("出版日期:%-20s\n", p->info.date);
+			printf("价格:    %-20s\n", p->info.price);
+			printf("\n");
+			flag = 1;
+			p = p->next;
+		} else {
+			p = p->next;
+		}
+	}
+	if (flag == 0) {
+		printf("没有该作者的信息\n");
+		printf("\n");
+		printf("输入任意键返回菜单\n");
+		getchar();
+	}
+	system("pause");
+	system("cls");
 }
 void ChangeBookInfo() { //修改图书信息
+char name[20];
+	printf("请输入需要修改的图书名：\n");
+	scanf("%s", name);
+	Node* p = head;
+	int flag = 0;
+	while (p != NULL) {
+		if (strcmp(p->info.name, name) == 0) {
+			printf("书名:    %-20s\n", p->info.name);
+			printf("作者名:  %-20s\n", p->info.author);
+			printf("出版社:  %-20s\n", p->info.publisher);
+			printf("出版日期:%-20s\n", p->info.date);
+			printf("价格:    %-20s\n", p->info.price);
+			printf("\n");
+			flag = 1;
+			printf("请输入书名：");
+			scanf("%s", p->info.name);
+			printf("请输入作者名：");
+			scanf("%s", p->info.author);
+			printf("请输入出版社：");
+			scanf("%s", p->info.publisher);
+			printf("请输入出版日期：");
+			scanf("%s", p->info.date);
+			printf("请输入价格：");
+			scanf("%s", p->info.price);
+			printf("\n");
+
+			p = p->next;
+		}
+		if (flag == 0) {
+			printf("没有该书名的信息\n");
+			printf("输入任意键返回菜单\n");
+			getchar();
+		}
+	}
+	system("pause");
+	system("cls");
 }
 void DeletBookInfo() {//删除图书信息
 	char name[20];
