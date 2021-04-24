@@ -37,13 +37,28 @@ public class Client {
 				int type = input.nextInt();
 				switch(type) {
 					case 1:
-
+						System.out.println("请输入图书信息（新增）：");
+						System.out.print("编号：");
+						Bid = input.nextInt();
+						System.out.print("书名：");
+						Bname = input.next();
+						System.out.print("作者：");
+						Author = input.next();
+						bookInfo = new BookInfo(Bid,Bname,Author);
+						bookInfoService.addBookInfo(bookInfo);
 						break;
 					case 2:
-		
 						break;
 					case 3:
-
+						System.out.println("请输入图书信息（修改）：");
+						System.out.print("编号：");
+						Bid = input.nextInt();
+						System.out.print("书名：");
+						Bname = input.next();
+						System.out.print("作者：");
+						Author = input.next();
+						bookInfo = new BookInfo(Bid,Bname,Author);
+						bookInfoService.editBookInfo(bookInfo, Bid);
 						break;
 					case 4:
 						bookInfoService.getAll();
