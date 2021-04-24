@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -16,7 +15,8 @@ public class ManageFunction {
     public static Book[] DeleteBook(Book[] books) {
         System.out.println("查看现在图书：");
         ManageFunction.ShowBook(books);
-        
+        Scanner scanner=new Scanner(System.in);
+
         System.out.println("请输入要删除的图书序号：");
         int n=scanner.nextInt();
         Book[] newbooks=new Book[books.length-1];
@@ -37,17 +37,17 @@ public class ManageFunction {
 
     //    图书修改
     public static Book[] ChangeBook(Book[] books) {
-        Scanner input = new Scanner(System.in);
+        Scanner scanner=new Scanner(System.in);
         //先显示全部数据供查看
         ManageFunction.ShowBook(books);
         System.out.print("请输入你要修改的图书id：");
         int n;
-        n = input.nextInt();
+        n = scanner.nextInt();
         System.out.println(books[n - 1].getBooknum() + " " + books[n - 1].getBookName() + " " + books[n - 1].getWriter());
         System.out.print("请输入更新的图书名称：");
-        String s1 = input.next();
+        String s1 = scanner.next();
         System.out.print("请输入更新的作者：");
-        String s2 = input.next();
+        String s2 = scanner.next();
         books[n - 1].setBookName(s1);
         books[n - 1].setWriter(s2);
         return books;
@@ -57,9 +57,10 @@ public class ManageFunction {
     public static void BookAdvice(Book[] books) {
         Random random = new Random();
         int n = random.nextInt(books.length);
-        System.out.println("书名：" + books[n].getBookName() + "\n作者：" + books[n].getWriter());
         System.out.println("推荐图书：");
+        System.out.println("书名：" + books[n].getBookName() + "\n作者：" + books[n].getWriter());
     }
 
 }
+
 
