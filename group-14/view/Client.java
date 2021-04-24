@@ -87,7 +87,6 @@ public class Client {
 						}
 						break;
 					case 7:
-
 						break;
 					case 0:
 						System.out.println("ÏµÍ³ÍË³ö");

@@ -56,6 +56,7 @@ public class BookInfoDao implements BookInfoDaoInter {
 	@Override
 	public int update(BookInfo bookInfo, int Bid) {
 		// TODO Auto-generated method stub
+
 		int result = -1;
 		String sql = "update book set Bid=?, Bname=?, Author=? where Bid=?";
 		try {
@@ -70,6 +71,8 @@ public class BookInfoDao implements BookInfoDaoInter {
 			e.printStackTrace();
 		}
 		return result;
+
+
 	}
 
 	@Override
