@@ -20,31 +20,35 @@ public class BookInfoService implements BookInfoServiceInter {
 		// TODO Auto-generated method stub
 		int result = bookInfoDao.insert(bookInfo);
 		if (result > 0) {
-			System.out.println("æ–°å¢æˆåŠŸï¼");
+			System.out.println("ĞÂÔö³É¹¦£¡");
 		}
 		else {
-			System.out.println("æ–°å¢å¤±è´¥ï¼");
+			System.out.println("ĞÂÔöÊ§°Ü£¡");
 		}
 	}
 
 	@Override
 	public void removeBookInfo(int Bid) {
 		// TODO Auto-generated method stub
-
+		int result = bookInfoDao.delete(Bid);
+		if (result > 0) {
+			System.out.println("É¾³ı³É¹¦£¡");
+		}
+		else {
+			System.out.println("É¾³ıÊ§°Ü£¡");
+		}
 	}
 
 	@Override
 	public void editBookInfo(BookInfo bookInfo, int Bid) {
 		// TODO Auto-generated method stub
-
 		int result = bookInfoDao.update(bookInfo, Bid);
 		if (result > 0) {
-			System.out.println("ä¿®æ”¹æˆåŠŸï¼");
+			System.out.println("ĞŞ¸Ä³É¹¦£¡");
 		}
 		else {
-			System.out.println("ä¿®æ”¹å¤±è´¥ï¼");
+			System.out.println("ĞŞ¸ÄÊ§°Ü£¡");
 		}
-
 	}
 
 	@Override
@@ -53,14 +57,14 @@ public class BookInfoService implements BookInfoServiceInter {
 		List<BookInfo> list = bookInfoDao.select();
 		if(list.size() > 0){
 			for (BookInfo bookInfo2 : list) {
-				System.out.print("ç¼–å·ï¼š"+bookInfo2.getBid() + "\t");
-				System.out.print("ä¹¦åï¼š"+bookInfo2.getBname() + "\t");
-				System.out.print("ä½œè€…ï¼š"+bookInfo2.getAuthor() + "\t");
+				System.out.print("±àºÅ£º"+bookInfo2.getBid() + "\t");
+				System.out.print("ÊéÃû£º"+bookInfo2.getBname() + "\t");
+				System.out.print("×÷Õß£º"+bookInfo2.getAuthor() + "\t");
 				System.out.println();
 			}
-			System.out.println("æŸ¥è¯¢æˆåŠŸï¼");
+			System.out.println("²éÑ¯³É¹¦£¡");
 		}else {
-			System.out.println("ç©ºè¡¨ï¼");
+			System.out.println("¿Õ±í£¡");
 		}
 	}
 
@@ -70,13 +74,13 @@ public class BookInfoService implements BookInfoServiceInter {
 		List<BookInfo> list = bookInfoDao.selectByBid(Bid);
 		if(list.size() > 0){
 			for (BookInfo bookInfo : list) {
-				System.out.print("ç¼–å·ï¼š"+bookInfo.getBid() + "\t");
-				System.out.print("ä¹¦åï¼š"+bookInfo.getBname() + "\t");
-				System.out.print("ä½œè€…ï¼š"+bookInfo.getAuthor() + "\t");
+				System.out.print("±àºÅ£º"+bookInfo.getBid() + "\t");
+				System.out.print("ÊéÃû£º"+bookInfo.getBname() + "\t");
+				System.out.print("×÷Õß£º"+bookInfo.getAuthor() + "\t");
 				System.out.println();
 			}
 		}else{
-			System.out.println("æ²¡æœ‰è¯¥å›¾ä¹¦ä¿¡æ¯ï¼");
+			System.out.println("Ã»ÓĞ¸ÃÍ¼ÊéĞÅÏ¢£¡");
 		}
 	}
 
@@ -86,21 +90,43 @@ public class BookInfoService implements BookInfoServiceInter {
 		List<BookInfo> list = bookInfoDao.selectByBname(Bname);
 		if(list.size() > 0){
 			for (BookInfo bookInfo : list) {
-				System.out.print("ç¼–å·ï¼š"+bookInfo.getBid() + "\t");
-				System.out.print("ä¹¦åï¼š"+bookInfo.getBname() + "\t");
-				System.out.print("ä½œè€…ï¼š"+bookInfo.getAuthor() + "\t");
+				System.out.print("±àºÅ£º"+bookInfo.getBid() + "\t");
+				System.out.print("ÊéÃû£º"+bookInfo.getBname() + "\t");
+				System.out.print("×÷Õß£º"+bookInfo.getAuthor() + "\t");
 				System.out.println();
 			}
 		}else{
-			System.out.println("æ²¡æœ‰è¯¥å›¾ä¹¦ä¿¡æ¯ï¼");
+			System.out.println("Ã»ÓĞ¸ÃÍ¼ÊéĞÅÏ¢£¡");
 		}
 	}
 
 	@Override
 	public void recommend() {
-
 		// TODO Auto-generated method stub
+		int[] a = new int[5];
+		Random r = new Random();
+		a[0] = r.nextInt(10); 
+		for(int i = 1;i < 5;i++){//´æÈë5¸öÊı,È·±£²»ÖØ¸´
+			a[i] = r.nextInt(10);
+			for(int j = 0;j < i;j++){
+				if(a[j]==a[i]){
+					i--;
+					break;
+				}
+			}
+		}
 
-
+		for (int i=0;i<5;i++) {
+			List<BookInfo> list = bookInfoDao.selectByBid(a[i]);
+			if(list.size() > 0){
+				for (BookInfo bookInfo2 : list){
+					System.out.print("ÊéÃû£º"+bookInfo2.getBname() + "\t");
+					System.out.print("×÷Õß£º"+bookInfo2.getAuthor() + "\t");
+					System.out.println();
+				}
+				
+			}
+		}
+		
 	}
 }
