@@ -8,7 +8,17 @@ public class ManageFunction {
 
     //    图书增加
     public static Book[] AddBook(Book[] books) {
-        return books;
+        int n = books.length;
+        System.out.println("请输入增加图书的书名：");
+        String bookname = scanner.nextLine();
+        System.out.println("请输入增加图书的作者：");
+        String bookwriter = scanner.nextLine();
+        Book[] newbooks = new Book[n + 1];
+        for (int i = 0; i < n; i++) {
+            newbooks[i] = books[i];
+        }
+        newbooks[n] = new Book(books.length, bookname, bookwriter);
+        return newbooks;
     }
 
     //    图书删除
