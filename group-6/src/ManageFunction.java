@@ -14,7 +14,20 @@ public class ManageFunction {
 
     //    图书删除
     public static Book[] DeleteBook(Book[] books) {
-        return books;
+        System.out.println("查看现在图书：");
+        ManageFunction.ShowBook(books);
+        
+        System.out.println("请输入要删除的图书序号：");
+        int n=scanner.nextInt();
+        Book[] newbooks=new Book[books.length-1];
+        for (int i = 0,j=0; i < books.length; i++) {
+            if (i!=n-1){
+                newbooks[j]=books[i];
+                newbooks[j].setBooknum(j+1);
+                j++;
+            }
+        }
+        return newbooks;
     }
 
     //    图书查看
