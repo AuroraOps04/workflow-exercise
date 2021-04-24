@@ -48,6 +48,9 @@ public class Client {
 						bookInfoService.addBookInfo(bookInfo);
 						break;
 					case 2:
+						System.out.print("请输入你要删除的书编号：");
+						Bid = input.nextInt();
+						bookInfoService.removeBookInfo(Bid);
 						break;
 					case 3:
 						System.out.println("请输入图书信息（修改）：");
@@ -87,6 +90,13 @@ public class Client {
 						}
 						break;
 					case 7:
+						try {
+							System.out.println("图书推荐：");
+							bookInfoService.recommend();
+						} catch (Exception e) {
+							// TODO: handle exception
+							return;
+						}
 						break;
 					case 0:
 						System.out.println("系统退出");
