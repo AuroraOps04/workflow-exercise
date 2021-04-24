@@ -1,60 +1,60 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include"main.h"
 #include"head.h"
 
 int main() {
 	while (1) {
-		Menu();					  	 //èœå•
+		Menu();					  	 //²Ëµ¥
 		char ch = getchar();
 		switch (ch) {
-		case'1':
-			InputBookInfo();		 //æ·»åŠ å›¾ä¹¦ä¿¡æ¯
-			break;
-		case'2':
-			PrintBookInfo();		 //æ‰“å°å›¾ä¹¦ä¿¡æ¯
-			break;
-		case'3':
-			RecommendBook();	     //æ¨èå›¾ä¹¦ä¿¡æ¯
-			break;
-		case'4':
-			Locate_BookInfo_name();  //æŒ‰ä¹¦åæŸ¥æ‰¾
-			break;
-		case'5':
-			Locate_BookInfo_author();//æŒ‰ä½œè€…æŸ¥æ‰¾
-			break;
-		case'6':
-			ChangeBookInfo();		 //ä¿®æ”¹å›¾ä¹¦ä¿¡æ¯
-			break;
-		case'7':
-			DeletBookInfo();		 //åˆ é™¤å›¾ä¹¦ä¿¡æ¯
-			break;
-		case'0':
-			ExitBookInfo();         //é€€å‡ºå›¾ä¹¦ä¿¡æ¯ç³»ç»Ÿ
-			break;
-		default:
-			system("pause");
-			system("cls");
-			break;
+			case'1':
+				InputBookInfo();		 //Ìí¼ÓÍ¼ÊéĞÅÏ¢
+				break;
+			case'2':
+				PrintBookInfo();		 //´òÓ¡Í¼ÊéĞÅÏ¢
+				break;
+			case'3':
+				RecommendBook();	     //ÍÆ¼öÍ¼ÊéĞÅÏ¢
+				break;
+			case'4':
+				Locate_BookInfo_name();  //°´ÊéÃû²éÕÒ
+				break;
+			case'5':
+				Locate_BookInfo_author();//°´×÷Õß²éÕÒ
+				break;
+			case'6':
+				ChangeBookInfo();		 //ĞŞ¸ÄÍ¼ÊéĞÅÏ¢
+				break;
+			case'7':
+				DeletBookInfo();		 //É¾³ıÍ¼ÊéĞÅÏ¢
+				break;
+			case'0':
+				ExitBookInfo();         //ÍË³öÍ¼ÊéĞÅÏ¢ÏµÍ³
+				break;
+			default:
+				system("pause");
+				system("cls");
+				break;
 		}
 	}
 	return 0;
 }
 void Menu() {
 	printf("\t*************************************************\n");
-	printf("\t\t    æ¬¢è¿ä½¿ç”¨å¸¦å¸¦å°èœé¸¡å›¾ä¹¦ç®¡ç†ç³»ç»Ÿ\n");
-	printf("\t\t\t    è¯·é€‰æ‹©åŠŸèƒ½\n");
+	printf("\t\t    »¶Ó­Ê¹ÓÃ´ø´øĞ¡²Ë¼¦Í¼Êé¹ÜÀíÏµÍ³\n");
+	printf("\t\t\t    ÇëÑ¡Ôñ¹¦ÄÜ\n");
 	printf("\t*************************************************\n");
-	printf("\t\t\t  1.æ·»åŠ å›¾ä¹¦ä¿¡æ¯\n");
-	printf("\t\t\t  2.æ‰“å°å›¾ä¹¦ä¿¡æ¯\n");
-	printf("\t\t\t  3.æ¨èå›¾ä¹¦ä¿¡æ¯\n");
-	printf("\t\t\t  4.æŒ‰ä¹¦åæŸ¥æ‰¾  \n");
-	printf("\t\t\t  5.æŒ‰ä½œè€…æŸ¥æ‰¾  \n");
-	printf("\t\t\t  6.ä¿®æ”¹å›¾ä¹¦ä¿¡æ¯\n");
-	printf("\t\t\t  7.åˆ é™¤å›¾ä¹¦ä¿¡æ¯\n");
-	printf("\t\t\t  0.é€€å‡ºå›¾ä¹¦ä¿¡æ¯ç³»ç»Ÿ\n");
+	printf("\t\t\t  1.Ìí¼ÓÍ¼ÊéĞÅÏ¢\n");
+	printf("\t\t\t  2.´òÓ¡Í¼ÊéĞÅÏ¢\n");
+	printf("\t\t\t  3.ÍÆ¼öÍ¼ÊéĞÅÏ¢\n");
+	printf("\t\t\t  4.°´ÊéÃû²éÕÒ  \n");
+	printf("\t\t\t  5.°´×÷Õß²éÕÒ  \n");
+	printf("\t\t\t  6.ĞŞ¸ÄÍ¼ÊéĞÅÏ¢\n");
+	printf("\t\t\t  7.É¾³ıÍ¼ÊéĞÅÏ¢\n");
+	printf("\t\t\t  0.ÍË³öÍ¼ÊéĞÅÏ¢ÏµÍ³\n");
 	printf("\t*************************************************\n");
 }
-void InputBookInfo() {   //æ·»åŠ å›¾ä¹¦ä¿¡æ¯
+void InputBookInfo() {   //Ìí¼ÓÍ¼ÊéĞÅÏ¢
 	Node* pNewNode = (Node*)malloc(sizeof(Node));
 	pNewNode->next = NULL;
 	Node* p = head;
@@ -64,21 +64,21 @@ void InputBookInfo() {   //æ·»åŠ å›¾ä¹¦ä¿¡æ¯
 		head = pNewNode;
 	else
 		p->next = pNewNode;
-	printf("è¯·è¾“å…¥ä¹¦åï¼š");
+	printf("ÇëÊäÈëÊéÃû£º");
 	scanf("%s", pNewNode->info.name);
-	printf("è¯·è¾“å…¥ä½œè€…åï¼š");
+	printf("ÇëÊäÈë×÷ÕßÃû£º");
 	scanf("%s", pNewNode->info.author);
-	printf("è¯·è¾“å…¥å‡ºç‰ˆç¤¾ï¼š");
+	printf("ÇëÊäÈë³ö°æÉç£º");
 	scanf("%s", pNewNode->info.publisher);
-	printf("è¯·è¾“å…¥å‡ºç‰ˆæ—¥æœŸï¼š");
+	printf("ÇëÊäÈë³ö°æÈÕÆÚ£º");
 	scanf("%s", pNewNode->info.date);
-	printf("è¯·è¾“å…¥ä»·æ ¼ï¼š");
+	printf("ÇëÊäÈë¼Û¸ñ£º");
 	scanf("%s", pNewNode->info.price);
 	char c;
 	int num = 0;
 	do {
-		printf("å½•å…¥æˆåŠŸï¼");
-		printf("æ˜¯å¦ç»§ç»­å½•å…¥ï¼ˆY/Nï¼‰ï¼Ÿï¼š");
+		printf("Â¼Èë³É¹¦£¡");
+		printf("ÊÇ·ñ¼ÌĞøÂ¼Èë£¨Y/N£©£¿£º");
 		getchar();
 		scanf("%c", &c);
 		if (c == 'y' || c == 'Y')
@@ -87,54 +87,54 @@ void InputBookInfo() {   //æ·»åŠ å›¾ä¹¦ä¿¡æ¯
 			if (c == 'n' || c == 'N') {
 				system("cls");
 				return;
-			}
-			else
-				printf("è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥");
+			} else
+				printf("ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë");
 		}
 	} while (c != 'y' && c != 'Y' && c != 'n' && c != 'N');
 	system("pause");
 	system("cls");
 }
-
-void ShowData(Node* p,int bookNo){
-    printf("************ç¬¬%dæœ¬å›¾ä¹¦************", bookNo);
-	printf("\n");
-	printf("\tä¹¦åï¼š    %-20s\n", p->info.name);
-	printf("\tä½œè€…åï¼š  %-20s\n", p->info.author);
-	printf("\tå‡ºç‰ˆç¤¾ï¼š  %-20s\n", p->info.publisher);
-	printf("\tå‡ºç‰ˆæ—¥æœŸï¼š%-20s\n", p->info.date);
-	printf("\tä»·æ ¼ï¼š    %-20s\n", p->info.price);
-}
-
-void PrintBookInfo() { //æ‰“å°å›¾ä¹¦ä¿¡æ¯
+void PrintBookInfo() { //´òÓ¡Í¼ÊéĞÅÏ¢
 	Node* p = head;
 	int count = 1;
 	if (p == NULL)
-		printf("ç³»ç»Ÿä¸­æš‚æ— å›¾ä¹¦ä¿¡æ¯ï¼Œè¯·ç¡®è®¤åç§°æ˜¯å¦æ­£ç¡®");
+		printf("ÏµÍ³ÖĞÔİÎŞÍ¼ÊéĞÅÏ¢£¬ÇëÈ·ÈÏÃû³ÆÊÇ·ñÕıÈ·");
 	else {
 		while (p != NULL) {
-			ShowData(p,count);
+			printf("************µÚ%d±¾Í¼Êé************", count);
+			printf("\n");
+			printf("\tÊéÃû£º    %-20s\n", p->info.name);
+			printf("\t×÷ÕßÃû£º  %-20s\n", p->info.author);
+			printf("\t³ö°æÉç£º  %-20s\n", p->info.publisher);
+			printf("\t³ö°æÈÕÆÚ£º%-20s\n", p->info.date);
+			printf("\t¼Û¸ñ£º    %-20s\n", p->info.price);
 			p = p->next;
 			count++;
 		}
-		printf("è¾“å…¥ä»»æ„é”®è¿”å›èœå•\n");
+		printf("ÊäÈëÈÎÒâ¼ü·µ»Ø²Ëµ¥\n");
 		getchar();
 	}
 	system("pause");
 	system("cls");
 }
-void RecommendBook() { //æ¨èå›¾ä¹¦ä¿¡æ¯
+void RecommendBook() { //ÍÆ¼öÍ¼ÊéĞÅÏ¢
 	int a = rand() % 10;
 	Node* p = head;
 	bool flag = false;
 	int i = 1;
 	if (p == NULL)
-		printf("ç³»ç»Ÿä¸­æš‚æ— å›¾ä¹¦ä¿¡æ¯ï¼Œè¯·ç¡®è®¤åç§°æ˜¯å¦æ­£ç¡®");
+		printf("ÏµÍ³ÖĞÔİÎŞÍ¼ÊéĞÅÏ¢£¬ÇëÈ·ÈÏÃû³ÆÊÇ·ñÕıÈ·");
 	else {
 		while (p != NULL) {
 			if (a == i) {
 				flag = true;
-				ShowData(p,i);
+				printf("************µÚ%d±¾Í¼Êé************", i);
+				printf("\n");
+				printf("\tÊéÃû£º    %-20s\n", p->info.name);
+				printf("\t×÷ÕßÃû£º  %-20s\n", p->info.author);
+				printf("\t³ö°æÉç£º  %-20s\n", p->info.publisher);
+				printf("\t³ö°æÈÕÆÚ£º%-20s\n", p->info.date);
+				printf("\t¼Û¸ñ£º    %-20s\n", p->info.price);
 				p = p->next;
 				i++;
 			} else {
@@ -143,30 +143,30 @@ void RecommendBook() { //æ¨èå›¾ä¹¦ä¿¡æ¯
 			}
 		}
 		if (!false) {
-			printf("æš‚æ— æ¨èå›¾ä¹¦ï¼");
+			printf("ÔİÎŞÍÆ¼öÍ¼Êé£¡");
 		}
-		printf("è¾“å…¥ä»»æ„é”®è¿”å›èœå•\n");
+		printf("ÊäÈëÈÎÒâ¼ü·µ»Ø²Ëµ¥\n");
 		getchar();
 	}
 	system("pause");
 	system("cls");
 }
-void Locate_BookInfo_name() { //æŒ‰ä¹¦åæŸ¥æ‰¾
-int flag = 0;
+void Locate_BookInfo_name() { //°´ÊéÃû²éÕÒ
+	int flag = 0;
 	char name[20];
 	Node* p = head;
-	printf("è¯·è¾“å…¥æ‚¨éœ€è¦æŸ¥è¯¢çš„ä¹¦åï¼š");
+	printf("ÇëÊäÈëÄúĞèÒª²éÑ¯µÄÊéÃû£º");
 	scanf("%s", name);
 	printf("\n");
-	printf("è¾“å…¥æˆåŠŸï¼\n");
-	printf("ä»¥ä¸‹æ˜¯æ‚¨æŸ¥æ‰¾çš„ä¿¡æ¯ï¼š\n");
+	printf("ÊäÈë³É¹¦£¡\n");
+	printf("ÒÔÏÂÊÇÄú²éÕÒµÄĞÅÏ¢£º\n");
 	while (p != NULL) {
 		if (strcmp(p->info.name, name) == 0) {
-			printf("ä¹¦å:    %-20s\n", p->info.name);
-			printf("ä½œè€…å:  %-20s\n", p->info.author);
-			printf("å‡ºç‰ˆç¤¾:  %-20s\n", p->info.publisher);
-			printf("å‡ºç‰ˆæ—¥æœŸ:%-20s\n", p->info.date);
-			printf("ä»·æ ¼:    %-20s\n", p->info.price);
+			printf("ÊéÃû:    %-20s\n", p->info.name);
+			printf("×÷ÕßÃû:  %-20s\n", p->info.author);
+			printf("³ö°æÉç:  %-20s\n", p->info.publisher);
+			printf("³ö°æÈÕÆÚ:%-20s\n", p->info.date);
+			printf("¼Û¸ñ:    %-20s\n", p->info.price);
 			printf("\n");
 			flag = 1;
 			p = p->next;
@@ -175,30 +175,30 @@ int flag = 0;
 		}
 	}
 	if (flag == 0) {
-		printf("æ²¡æœ‰è¯¥ä¹¦åçš„ä¿¡æ¯\n");
-		printf("è¾“å…¥ä»»æ„é”®è¿”å›èœå•\n");
+		printf("Ã»ÓĞ¸ÃÊéÃûµÄĞÅÏ¢\n");
+		printf("ÊäÈëÈÎÒâ¼ü·µ»Ø²Ëµ¥\n");
 		getchar();
 	}
 	system("pause");
 	system("cls");
 }
-void Locate_BookInfo_author() { //æŒ‰ä½œè€…æŸ¥æ‰¾
-int flag = 0;
+void Locate_BookInfo_author() { //°´×÷Õß²éÕÒ
+	int flag = 0;
 	char author[20];
 	Node* p = head;
-	printf("è¯·è¾“å…¥æ‚¨éœ€è¦æŸ¥è¯¢çš„ä½œè€…åï¼š");
+	printf("ÇëÊäÈëÄúĞèÒª²éÑ¯µÄ×÷ÕßÃû£º");
 	scanf("%s", author);
 	printf("\n");
-	printf("è¾“å…¥æˆåŠŸï¼\n");
-	printf("ä»¥ä¸‹æ˜¯æ‚¨æŸ¥æ‰¾çš„ä¿¡æ¯ï¼š\n");
+	printf("ÊäÈë³É¹¦£¡\n");
+	printf("ÒÔÏÂÊÇÄú²éÕÒµÄĞÅÏ¢£º\n");
 	printf("\n");
 	while (p != NULL) {
 		if (strcmp(p->info.author, author) == 0) {
-			printf("ä¹¦å:    %-20s\n", p->info.name);
-			printf("ä½œè€…å:  %-20s\n", p->info.author);
-			printf("å‡ºç‰ˆç¤¾:  %-20s\n", p->info.publisher);
-			printf("å‡ºç‰ˆæ—¥æœŸ:%-20s\n", p->info.date);
-			printf("ä»·æ ¼:    %-20s\n", p->info.price);
+			printf("ÊéÃû:    %-20s\n", p->info.name);
+			printf("×÷ÕßÃû:  %-20s\n", p->info.author);
+			printf("³ö°æÉç:  %-20s\n", p->info.publisher);
+			printf("³ö°æÈÕÆÚ:%-20s\n", p->info.date);
+			printf("¼Û¸ñ:    %-20s\n", p->info.price);
 			printf("\n");
 			flag = 1;
 			p = p->next;
@@ -207,56 +207,55 @@ int flag = 0;
 		}
 	}
 	if (flag == 0) {
-		printf("æ²¡æœ‰è¯¥ä½œè€…çš„ä¿¡æ¯\n");
+		printf("Ã»ÓĞ¸Ã×÷ÕßµÄĞÅÏ¢\n");
 		printf("\n");
-		printf("è¾“å…¥ä»»æ„é”®è¿”å›èœå•\n");
+		printf("ÊäÈëÈÎÒâ¼ü·µ»Ø²Ëµ¥\n");
 		getchar();
 	}
 	system("pause");
 	system("cls");
 }
-void ChangeBookInfo() { //ä¿®æ”¹å›¾ä¹¦ä¿¡æ¯
+void ChangeBookInfo() { //ĞŞ¸ÄÍ¼ÊéĞÅÏ¢
 	char name[20];
-  char name[20];
-	printf("è¯·è¾“å…¥éœ€è¦ä¿®æ”¹çš„å›¾ä¹¦åï¼š\n");
+	printf("ÇëÊäÈëĞèÒªĞŞ¸ÄµÄÍ¼ÊéÃû£º\n");
 	scanf("%s", name);
 	Node* p = head;
 	int flag = 0;
 	while (p != NULL) {
 		if (strcmp(p->info.name, name) == 0) {
-			printf("ä¹¦å:    %-20s\n", p->info.name);
-			printf("ä½œè€…å:  %-20s\n", p->info.author);
-			printf("å‡ºç‰ˆç¤¾:  %-20s\n", p->info.publisher);
-			printf("å‡ºç‰ˆæ—¥æœŸ:%-20s\n", p->info.date);
-			printf("ä»·æ ¼:    %-20s\n", p->info.price);
+			printf("ÊéÃû:    %-20s\n", p->info.name);
+			printf("×÷ÕßÃû:  %-20s\n", p->info.author);
+			printf("³ö°æÉç:  %-20s\n", p->info.publisher);
+			printf("³ö°æÈÕÆÚ:%-20s\n", p->info.date);
+			printf("¼Û¸ñ:    %-20s\n", p->info.price);
 			printf("\n");
 			flag = 1;
-			printf("è¯·è¾“å…¥ä¹¦åï¼š");
+			printf("ÇëÊäÈëÊéÃû£º");
 			scanf("%s", p->info.name);
-			printf("è¯·è¾“å…¥ä½œè€…åï¼š");
+			printf("ÇëÊäÈë×÷ÕßÃû£º");
 			scanf("%s", p->info.author);
-			printf("è¯·è¾“å…¥å‡ºç‰ˆç¤¾ï¼š");
+			printf("ÇëÊäÈë³ö°æÉç£º");
 			scanf("%s", p->info.publisher);
-			printf("è¯·è¾“å…¥å‡ºç‰ˆæ—¥æœŸï¼š");
+			printf("ÇëÊäÈë³ö°æÈÕÆÚ£º");
 			scanf("%s", p->info.date);
-			printf("è¯·è¾“å…¥ä»·æ ¼ï¼š");
+			printf("ÇëÊäÈë¼Û¸ñ£º");
 			scanf("%s", p->info.price);
 			printf("\n");
 
 			p = p->next;
 		}
 		if (flag == 0) {
-			printf("æ²¡æœ‰è¯¥ä¹¦åçš„ä¿¡æ¯\n");
-			printf("è¾“å…¥ä»»æ„é”®è¿”å›èœå•\n");
+			printf("Ã»ÓĞ¸ÃÊéÃûµÄĞÅÏ¢\n");
+			printf("ÊäÈëÈÎÒâ¼ü·µ»Ø²Ëµ¥\n");
 			getchar();
 		}
 	}
 	system("pause");
 	system("cls");
 }
-void DeletBookInfo() {//åˆ é™¤å›¾ä¹¦ä¿¡æ¯
+void DeletBookInfo() {//É¾³ıÍ¼ÊéĞÅÏ¢
 	char name[20];
-	printf("è¯·è¾“å…¥éœ€è¦åˆ é™¤çš„å›¾ä¹¦åï¼š\n");
+	printf("ÇëÊäÈëĞèÒªÉ¾³ıµÄÍ¼ÊéÃû£º\n");
 	scanf("%s", name);
 	printf("\n");
 	Node* p = head;
@@ -265,11 +264,11 @@ void DeletBookInfo() {//åˆ é™¤å›¾ä¹¦ä¿¡æ¯
 	int flag = 0;
 	while (p != NULL) {
 		if (strcmp(p->info.name, name) == 0) {
-			printf("ä¹¦å:    %-20s\n", p->info.name);
-			printf("ä½œè€…å:  %-20s\n", p->info.author);
-			printf("å‡ºç‰ˆç¤¾:  %-20s\n", p->info.publisher);
-			printf("å‡ºç‰ˆæ—¥æœŸ:%-20s\n", p->info.date);
-			printf("ä»·æ ¼:    %-20s\n", p->info.price);
+			printf("ÊéÃû:    %-20s\n", p->info.name);
+			printf("×÷ÕßÃû:  %-20s\n", p->info.author);
+			printf("³ö°æÉç:  %-20s\n", p->info.publisher);
+			printf("³ö°æÈÕÆÚ:%-20s\n", p->info.date);
+			printf("¼Û¸ñ:    %-20s\n", p->info.price);
 			printf("\n");
 			flag = 1;
 
@@ -287,17 +286,17 @@ void DeletBookInfo() {//åˆ é™¤å›¾ä¹¦ä¿¡æ¯
 		p = p->next;
 	}
 	if (flag == 0) {
-		printf("æ²¡æœ‰è¯¥ä¹¦åçš„ä¿¡æ¯\n");
+		printf("Ã»ÓĞ¸ÃÊéÃûµÄĞÅÏ¢\n");
 		printf("\n");
-		printf("è¾“å…¥ä»»æ„é”®è¿”å›èœå•\n");
+		printf("ÊäÈëÈÎÒâ¼ü·µ»Ø²Ëµ¥\n");
 		printf("\n");
 		getchar();
 	}
 	system("pause");
 	system("cls");
 }
-void ExitBookInfo() { //é€€å‡ºå›¾ä¹¦ç®¡ç†ç³»ç»Ÿ
-	printf("æ­£åœ¨é€€å‡ºâ€¦â€¦\n");
+void ExitBookInfo() { //ÍË³öÍ¼Êé¹ÜÀíÏµÍ³
+	printf("ÕıÔÚÍË³ö¡­¡­\n");
 	printf("\n");
 	exit(0);
 }
