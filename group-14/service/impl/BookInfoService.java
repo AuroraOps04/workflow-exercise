@@ -18,7 +18,13 @@ public class BookInfoService implements BookInfoServiceInter {
 	@Override
 	public void addBookInfo(BookInfo bookInfo) {
 		// TODO Auto-generated method stub
-
+		int result = bookInfoDao.insert(bookInfo);
+		if (result > 0) {
+			System.out.println("新增成功！");
+		}
+		else {
+			System.out.println("新增失败！");
+		}
 	}
 
 	@Override
@@ -30,7 +36,6 @@ public class BookInfoService implements BookInfoServiceInter {
 	@Override
 	public void editBookInfo(BookInfo bookInfo, int Bid) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -85,5 +90,6 @@ public class BookInfoService implements BookInfoServiceInter {
 	@Override
 	public void recommend() {
 		// TODO Auto-generated method stub
+
 	}
 }
