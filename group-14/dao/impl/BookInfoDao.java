@@ -38,19 +38,31 @@ public class BookInfoDao implements BookInfoDaoInter {
 	@Override
 	public int insert(BookInfo bookInfo) {
 		// TODO Auto-generated method stub
-
+		int result = -1;
+		String sql = "insert into book(Bid, Bname, Author) values(?, ?, ?)";
+		try {
+			PreparedStatement pstmt = baseDao.getConn().prepareStatement(sql);
+			pstmt.setInt(1, bookInfo.getBid());
+			pstmt.setString(2, bookInfo.getBname());
+			pstmt.setString(3, bookInfo.getAuthor());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
 	public int update(BookInfo bookInfo, int Bid) {
 		// TODO Auto-generated method stub
-	
+
 	}
 
 	@Override
 	public int delete(int Bid) {
 		// TODO Auto-generated method stub
-	
+
 	}
 
 	@Override
