@@ -57,6 +57,22 @@ public class BookInfoDao implements BookInfoDaoInter {
 	public int update(BookInfo bookInfo, int Bid) {
 		// TODO Auto-generated method stub
 
+		int result = -1;
+		String sql = "update book set Bid=?, Bname=?, Author=? where Bid=?";
+		try {
+			PreparedStatement pstmt = baseDao.getConn().prepareStatement(sql);
+			pstmt.setInt(1, bookInfo.getBid());
+			pstmt.setString(2, bookInfo.getBname());
+			pstmt.setString(3, bookInfo.getAuthor());
+			pstmt.setInt(4, bookInfo.getBid());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+
+
 	}
 
 	@Override

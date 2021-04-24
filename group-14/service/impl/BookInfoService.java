@@ -20,10 +20,10 @@ public class BookInfoService implements BookInfoServiceInter {
 		// TODO Auto-generated method stub
 		int result = bookInfoDao.insert(bookInfo);
 		if (result > 0) {
-			System.out.println("ĞÂÔö³É¹¦£¡");
+			System.out.println("æ–°å¢æˆåŠŸï¼");
 		}
 		else {
-			System.out.println("ĞÂÔöÊ§°Ü£¡");
+			System.out.println("æ–°å¢å¤±è´¥ï¼");
 		}
 	}
 
@@ -36,6 +36,15 @@ public class BookInfoService implements BookInfoServiceInter {
 	@Override
 	public void editBookInfo(BookInfo bookInfo, int Bid) {
 		// TODO Auto-generated method stub
+
+		int result = bookInfoDao.update(bookInfo, Bid);
+		if (result > 0) {
+			System.out.println("ä¿®æ”¹æˆåŠŸï¼");
+		}
+		else {
+			System.out.println("ä¿®æ”¹å¤±è´¥ï¼");
+		}
+
 	}
 
 	@Override
@@ -44,14 +53,14 @@ public class BookInfoService implements BookInfoServiceInter {
 		List<BookInfo> list = bookInfoDao.select();
 		if(list.size() > 0){
 			for (BookInfo bookInfo2 : list) {
-				System.out.print("±àºÅ£º"+bookInfo2.getBid() + "\t");
-				System.out.print("ÊéÃû£º"+bookInfo2.getBname() + "\t");
-				System.out.print("×÷Õß£º"+bookInfo2.getAuthor() + "\t");
+				System.out.print("ç¼–å·ï¼š"+bookInfo2.getBid() + "\t");
+				System.out.print("ä¹¦åï¼š"+bookInfo2.getBname() + "\t");
+				System.out.print("ä½œè€…ï¼š"+bookInfo2.getAuthor() + "\t");
 				System.out.println();
 			}
-			System.out.println("²éÑ¯³É¹¦£¡");
+			System.out.println("æŸ¥è¯¢æˆåŠŸï¼");
 		}else {
-			System.out.println("¿Õ±í£¡");
+			System.out.println("ç©ºè¡¨ï¼");
 		}
 	}
 
@@ -61,13 +70,13 @@ public class BookInfoService implements BookInfoServiceInter {
 		List<BookInfo> list = bookInfoDao.selectByBid(Bid);
 		if(list.size() > 0){
 			for (BookInfo bookInfo : list) {
-				System.out.print("±àºÅ£º"+bookInfo.getBid() + "\t");
-				System.out.print("ÊéÃû£º"+bookInfo.getBname() + "\t");
-				System.out.print("×÷Õß£º"+bookInfo.getAuthor() + "\t");
+				System.out.print("ç¼–å·ï¼š"+bookInfo.getBid() + "\t");
+				System.out.print("ä¹¦åï¼š"+bookInfo.getBname() + "\t");
+				System.out.print("ä½œè€…ï¼š"+bookInfo.getAuthor() + "\t");
 				System.out.println();
 			}
 		}else{
-			System.out.println("Ã»ÓĞ¸ÃÍ¼ÊéĞÅÏ¢£¡");
+			System.out.println("æ²¡æœ‰è¯¥å›¾ä¹¦ä¿¡æ¯ï¼");
 		}
 	}
 
@@ -77,19 +86,21 @@ public class BookInfoService implements BookInfoServiceInter {
 		List<BookInfo> list = bookInfoDao.selectByBname(Bname);
 		if(list.size() > 0){
 			for (BookInfo bookInfo : list) {
-				System.out.print("±àºÅ£º"+bookInfo.getBid() + "\t");
-				System.out.print("ÊéÃû£º"+bookInfo.getBname() + "\t");
-				System.out.print("×÷Õß£º"+bookInfo.getAuthor() + "\t");
+				System.out.print("ç¼–å·ï¼š"+bookInfo.getBid() + "\t");
+				System.out.print("ä¹¦åï¼š"+bookInfo.getBname() + "\t");
+				System.out.print("ä½œè€…ï¼š"+bookInfo.getAuthor() + "\t");
 				System.out.println();
 			}
 		}else{
-			System.out.println("Ã»ÓĞ¸ÃÍ¼ÊéĞÅÏ¢£¡");
+			System.out.println("æ²¡æœ‰è¯¥å›¾ä¹¦ä¿¡æ¯ï¼");
 		}
 	}
 
 	@Override
 	public void recommend() {
+
 		// TODO Auto-generated method stub
+
 
 	}
 }
