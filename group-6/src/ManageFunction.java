@@ -42,7 +42,10 @@ public class ManageFunction {
 
     //    图书推荐
     public static void BookAdvice(Book[] books) {
-
+        Random random = new Random();
+        int n = random.nextInt(books.length);
+        System.out.println("书名：" + books[n].getBookName() + "\n作者：" + books[n].getWriter());
+        System.out.println("推荐图书：");
     }
 
 }
