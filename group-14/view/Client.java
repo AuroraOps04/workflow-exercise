@@ -40,19 +40,36 @@ public class Client {
 
 						break;
 					case 2:
-
+		
 						break;
 					case 3:
 
 						break;
 					case 4:
-
+						bookInfoService.getAll();
 						break;
 					case 5:
-
+						try {
+							System.out.print("请输入你要搜索的编号：");
+							Bid = input.nextInt();
+							bookInfoService.getBookInfoByBid(Bid);
+						} catch (Exception e) {
+							// TODO: handle exception
+							System.out.println("输入有误，请输入对应学号！");
+							return;
+						}
+						
 						break;
 					case 6:
-
+						try {
+							System.out.print("请输入你要搜索的书名：");
+							Bname = input.next();
+							bookInfoService.getBookInfoByBame(Bname);
+						} catch (Exception e) {
+							// TODO: handle exception
+							System.out.println("输入有误，请输入对应名字！");
+							return;
+						}
 						break;
 					case 7:
 

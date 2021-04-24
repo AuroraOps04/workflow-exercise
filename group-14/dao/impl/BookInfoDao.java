@@ -16,7 +16,23 @@ public class BookInfoDao implements BookInfoDaoInter {
 	@Override
 	public List<BookInfo> select() {
 		// TODO Auto-generated method stub
-
+		List<BookInfo> list = new ArrayList<BookInfo>();
+		String sql = "select * from book";
+		try {
+			PreparedStatement pstmt = baseDao.getConn().prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				BookInfo bookInfo = new BookInfo();
+				bookInfo.setBid(rs.getInt("Bid"));
+				bookInfo.setBname(rs.getString("Bname"));
+				bookInfo.setAuthor(rs.getString("Author"));
+				list.add(bookInfo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	@Override
@@ -28,25 +44,59 @@ public class BookInfoDao implements BookInfoDaoInter {
 	@Override
 	public int update(BookInfo bookInfo, int Bid) {
 		// TODO Auto-generated method stub
-
+	
 	}
 
 	@Override
 	public int delete(int Bid) {
 		// TODO Auto-generated method stub
-
+	
 	}
 
 	@Override
 	public List<BookInfo> selectByBid(int Bid) {
 		// TODO Auto-generated method stub
-
+		List<BookInfo> list = new ArrayList<BookInfo>();
+		String sql = "select * from book where Bid=?";
+		try {
+			PreparedStatement pstmt = baseDao.getConn().prepareStatement(sql);
+			pstmt.setInt(1, Bid);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				BookInfo bookInfo = new BookInfo();
+				bookInfo.setBid(rs.getInt("Bid"));
+				bookInfo.setBname(rs.getString("Bname"));
+				bookInfo.setAuthor(rs.getString("Author"));
+				list.add(bookInfo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	@Override
 	public List<BookInfo> selectByBname(String Bname) {
 		// TODO Auto-generated method stub
-
+		List<BookInfo> list = new ArrayList<BookInfo>();
+		String sql = "select * from book where Bname=?";
+		try {
+			PreparedStatement pstmt = baseDao.getConn().prepareStatement(sql);
+			pstmt.setString(1, Bname);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				BookInfo bookInfo = new BookInfo();
+				bookInfo.setBid(rs.getInt("Bid"));
+				bookInfo.setBname(rs.getString("Bname"));
+				bookInfo.setAuthor(rs.getString("Author"));
+				list.add(bookInfo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	@Override
