@@ -142,7 +142,7 @@ void RecommendBook() { //推荐图书信息
 				i++;
 			}
 		}
-		if (!false) {
+		if (!flag) {
 			printf("暂无推荐图书！");
 		}
 		printf("输入任意键返回菜单\n");
