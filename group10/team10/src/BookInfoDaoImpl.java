@@ -3,6 +3,7 @@ import dao.BaseDao;
 import dao.BookInfoDao;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * @Auther: jackyar
@@ -19,8 +20,10 @@ public class BookInfoDaoImpl extends BaseDao implements BookInfoDao {
     @Override
     public int countBookInfo() {
         // TODO: 2021/4/24 吕洽闻
-        System.out.println("功能开发中...");
-        return 0;
+        // System.out.println("功能开发中...");
+        String sql = "SELECT COUNT(1) FROM book_info";
+        BaseDao dao = new BaseDao();
+        return dao.querySingleValue(sql);
     }
 
     /**
@@ -31,8 +34,9 @@ public class BookInfoDaoImpl extends BaseDao implements BookInfoDao {
     @Override
     public List<BookInfo> queryBookDao() {
         // TODO: 2021/4/24 鄢宇航
-        System.out.println("功能开发中...");
-        return null;
+        // System.out.println("功能开发中...");
+        String sql = "SELECT * FROM book_info";
+        return new BaseDao().query(BookInfo.class,sql);
     }
 
     /**
@@ -46,8 +50,9 @@ public class BookInfoDaoImpl extends BaseDao implements BookInfoDao {
     @Override
     public int addBookInfo(String name, String author, String publish) {
         // TODO: 2021/4/24 安泽铭
-        System.out.println("功能开发中...");
-        return -1;
+        // System.out.println("功能开发中...");
+        String sql = "INSERT INTO book_info(name,author,publish) VALUES(?,?,?)";
+        return new BaseDao().update(sql,name,author,publish);
     }
 
     /**
@@ -59,8 +64,9 @@ public class BookInfoDaoImpl extends BaseDao implements BookInfoDao {
     @Override
     public int deleteBookInfoByName(String name) {
         // TODO: 2021/4/24 林凯斌
-        System.out.println("功能开发中...");
-        return -1;
+        // System.out.println("功能开发中...");
+        String sql = "DELETE FROM book_info WHERE book_info.`name` = ?";
+        return new BaseDao().update(sql, name);
     }
 
     /**
@@ -73,8 +79,9 @@ public class BookInfoDaoImpl extends BaseDao implements BookInfoDao {
     @Override
     public int updateBookInfoByName(String name, String rename) {
         // TODO: 2021/4/24 吴家劲
-        System.out.println("功能开发中...");
-        return -1;
+        // System.out.println("功能开发中...");
+        String sql = "UPDATE book_info SET book_info.`name`=? WHERE book_info.`name`=?";
+        return new BaseDao().update(sql, rename, name);
     }
 
     /**
@@ -85,7 +92,11 @@ public class BookInfoDaoImpl extends BaseDao implements BookInfoDao {
     @Override
     public BookInfo pushBook() {
         // TODO: 2021/4/24 李明特
-        System.out.println("功能开发中...");
-        return null;
+        // System.out.println("功能开发中...");
+        Random random = new Random();
+        int i = random.nextInt(countBookInfo());
+        String sql = "SELECT * FROM book_info WHERE book_info.id=?";
+        List<BookInfo> list = new BaseDao().query(BookInfo.class, sql, i);
+        return list.get(0);
     }
 }
