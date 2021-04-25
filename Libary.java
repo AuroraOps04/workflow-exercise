@@ -1,4 +1,4 @@
-import java.util.Random;
+﻿import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -79,7 +79,18 @@ public class Libary {
 
     public static void recommend(ArrayList<String> books){
 //        叶子文
-    }
+        Random r = new Random();
+        int n;
+        if(books.size()+1<3){
+            System.out.println("书籍太少，不做推荐");
+        }else {
+            for (int i = 0; i < 3; i++) {
+                n = r.nextInt(books.size());
+                System.out.println("推荐书籍："+books.get(n));
+            }
+        }
+ }
+   
 
     public static void main(String[] args) {
         ArrayList<String> books = new ArrayList<>();
