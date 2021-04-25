@@ -9,6 +9,7 @@ public class ManageFunction {
     //    图书增加
     public static Book[] AddBook(Book[] books) {
         int n = books.length;
+        Scanner scanner = new Scanner(System.in);
         System.out.println("请输入增加图书的书名：");
         String bookname = scanner.nextLine();
         System.out.println("请输入增加图书的作者：");
@@ -17,7 +18,7 @@ public class ManageFunction {
         for (int i = 0; i < n; i++) {
             newbooks[i] = books[i];
         }
-        newbooks[n] = new Book(books.length, bookname, bookwriter);
+        newbooks[n] = new Book(books.length+1, bookname, bookwriter);
         return newbooks;
     }
 
