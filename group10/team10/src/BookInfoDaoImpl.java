@@ -73,8 +73,8 @@ public class BookInfoDaoImpl extends BaseDao implements BookInfoDao {
     @Override
     public int updateBookInfoByName(String name, String rename) {
         // TODO: 2021/4/24 吴家劲
-        System.out.println("功能开发中...");
-        return -1;
+        String sql = "UPDATE book_info SET book_info.`name`=? WHERE book_info.`name`=?";
+        return new BaseDao().update(sql, rename, name);
     }
 
     /**
