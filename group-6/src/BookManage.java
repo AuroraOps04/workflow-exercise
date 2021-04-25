@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 import static sun.misc.Version.println;
