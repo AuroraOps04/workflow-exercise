@@ -56,7 +56,6 @@ public class BookInfoDao implements BookInfoDaoInter {
 	@Override
 	public int update(BookInfo bookInfo, int Bid) {
 		// TODO Auto-generated method stub
-
 		int result = -1;
 		String sql = "update book set Bid=?, Bname=?, Author=? where Bid=?";
 		try {
@@ -71,14 +70,22 @@ public class BookInfoDao implements BookInfoDaoInter {
 			e.printStackTrace();
 		}
 		return result;
-
-
 	}
 
 	@Override
 	public int delete(int Bid) {
 		// TODO Auto-generated method stub
-
+		int result = -1;
+		String sql = "delete from book where Bid=?";
+		try {
+			PreparedStatement pstmt = baseDao.getConn().prepareStatement(sql);
+			pstmt.setInt(1, Bid);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
