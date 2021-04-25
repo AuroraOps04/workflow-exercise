@@ -19,8 +19,10 @@ public class BookInfoDaoImpl extends BaseDao implements BookInfoDao {
     @Override
     public int countBookInfo() {
         // TODO: 2021/4/24 吕洽闻
-        System.out.println("功能开发中...");
-        return 0;
+//        System.out.println("功能开发中...");
+        String sql = "select count(1) from book_info";
+        BaseDao dao = new BaseDao();
+        return dao.querySingleValue(sql);
     }
 
     /**
