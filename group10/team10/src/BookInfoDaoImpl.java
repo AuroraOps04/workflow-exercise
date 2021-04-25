@@ -85,7 +85,10 @@ public class BookInfoDaoImpl extends BaseDao implements BookInfoDao {
     @Override
     public BookInfo pushBook() {
         // TODO: 2021/4/24 李明特
-        System.out.println("功能开发中...");
-        return null;
+        Random random = new Random();
+        int i = random.nextInt(countBookInfo());
+        String sql = "select * from book_info where book_info.id=?";
+        List<BookInfo> list = new BaseDao().query(BookInfo.class,sql,i);
+        return list.get(0);
     }
 }
