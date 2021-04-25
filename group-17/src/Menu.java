@@ -29,7 +29,7 @@ public class Menu {
                     libraryOperator.modBook();
                     break;
                 case 4:
-                    libraryOperator.redBook();
+                    libraryOperator.recBook();
                     break;
                 case 5:
                     System.out.println("谢谢使用！");
