@@ -12,9 +12,9 @@ public class BaseDao {
 	
 	public BaseDao() {
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/software_engineering?useSSL=false";
+		String url = "jdbc:mysql://localhost:3306/211806243db?useSSL=false";
 		String user = "root";
-		String pwd = "123456";
+		String pwd = "";
 		// 1£º¼ÓÔØÇý¶¯
 		try {
 			Class.forName(driver);

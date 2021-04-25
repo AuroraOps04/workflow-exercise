@@ -21,44 +21,44 @@ public class Client {
 		String Bname;
 		String Author;
 		while(true) {
-			System.out.println("-----------------------------------------");
-			System.out.println("|         æ¬¢è¿ä½¿ç”¨å›¾ä¹¦ä¿¡æ¯ç®¡ç†ç³»ç»Ÿ        |");
-			System.out.println("|1ï¼šæ–°å¢                                 |");
-			System.out.println("|2ï¼šåˆ é™¤                                 |");
-			System.out.println("|3ï¼šä¿®æ”¹                                 |");
-			System.out.println("|4ï¼šæŸ¥è¯¢                                 |");
-			System.out.println("|5ï¼šæœç´¢(ç¼–å·)                           |");
-			System.out.println("|6ï¼šæœç´¢(ä¹¦å)                           |");
-			System.out.println("|7ï¼šæ¨è                                 |");
-			System.out.println("|0ï¼šé€€å‡º                                 |");
-			System.out.println("-----------------------------------------");
+			System.out.println("-------------------");
+			System.out.println("|  »¶Ó­Ê¹ÓÃÍ¼ÊéĞÅÏ¢¹ÜÀíÏµÍ³   |");
+			System.out.println("|1£ºĞÂÔö                                 |");
+			System.out.println("|2£ºÉ¾³ı                                 |");
+			System.out.println("|3£ºĞŞ¸Ä                                 |");
+			System.out.println("|4£º²éÑ¯                                 |");
+			System.out.println("|5£ºËÑË÷(±àºÅ)                       |");
+			System.out.println("|6£ºËÑË÷(ÊéÃû)                       |");
+			System.out.println("|7£ºÍÆ¼ö                                 |");
+			System.out.println("|0£ºÍË³ö                                 |");
+			System.out.println("-------------------");
 			try {
-				System.out.print("è¯·é€‰æ‹©åŠŸèƒ½(è¾“å…¥å¯¹åº”æ•°å­—)ï¼š");
+				System.out.print("ÇëÑ¡Ôñ¹¦ÄÜ(ÊäÈë¶ÔÓ¦Êı×Ö)£º");
 				int type = input.nextInt();
 				switch(type) {
 					case 1:
-						System.out.println("è¯·è¾“å…¥å›¾ä¹¦ä¿¡æ¯ï¼ˆæ–°å¢ï¼‰ï¼š");
-						System.out.print("ç¼–å·ï¼š");
+						System.out.println("ÇëÊäÈëÍ¼ÊéĞÅÏ¢£¨ĞÂÔö£©£º");
+						System.out.print("±àºÅ£º");
 						Bid = input.nextInt();
-						System.out.print("ä¹¦åï¼š");
+						System.out.print("ÊéÃû£º");
 						Bname = input.next();
-						System.out.print("ä½œè€…ï¼š");
+						System.out.print("×÷Õß£º");
 						Author = input.next();
 						bookInfo = new BookInfo(Bid,Bname,Author);
 						bookInfoService.addBookInfo(bookInfo);
 						break;
 					case 2:
-						System.out.print("è¯·è¾“å…¥ä½ è¦åˆ é™¤çš„ä¹¦ç¼–å·ï¼š");
+						System.out.print("ÇëÊäÈëÄãÒªÉ¾³ıµÄÊé±àºÅ£º");
 						Bid = input.nextInt();
 						bookInfoService.removeBookInfo(Bid);
 						break;
 					case 3:
-						System.out.println("è¯·è¾“å…¥å›¾ä¹¦ä¿¡æ¯ï¼ˆä¿®æ”¹ï¼‰ï¼š");
-						System.out.print("ç¼–å·ï¼š");
+						System.out.println("ÇëÊäÈëÍ¼ÊéĞÅÏ¢£¨ĞŞ¸Ä£©£º");
+						System.out.print("±àºÅ£º");
 						Bid = input.nextInt();
-						System.out.print("ä¹¦åï¼š");
+						System.out.print("ÊéÃû£º");
 						Bname = input.next();
-						System.out.print("ä½œè€…ï¼š");
+						System.out.print("×÷Õß£º");
 						Author = input.next();
 						bookInfo = new BookInfo(Bid,Bname,Author);
 						bookInfoService.editBookInfo(bookInfo, Bid);
@@ -68,50 +68,46 @@ public class Client {
 						break;
 					case 5:
 						try {
-							System.out.print("è¯·è¾“å…¥ä½ è¦æœç´¢çš„ç¼–å·ï¼š");
+							System.out.print("ÇëÊäÈëÄãÒªËÑË÷µÄ±àºÅ£º");
 							Bid = input.nextInt();
 							bookInfoService.getBookInfoByBid(Bid);
 						} catch (Exception e) {
 							// TODO: handle exception
-							System.out.println("è¾“å…¥æœ‰è¯¯ï¼Œè¯·è¾“å…¥å¯¹åº”å­¦å·ï¼");
+							System.out.println("ÊäÈëÓĞÎó£¬ÇëÊäÈë¶ÔÓ¦Ñ§ºÅ£¡");
 							return;
 						}
 						
 						break;
 					case 6:
 						try {
-							System.out.print("è¯·è¾“å…¥ä½ è¦æœç´¢çš„ä¹¦åï¼š");
+							System.out.print("ÇëÊäÈëÄãÒªËÑË÷µÄÊéÃû£º");
 							Bname = input.next();
 							bookInfoService.getBookInfoByBame(Bname);
 						} catch (Exception e) {
 							// TODO: handle exception
-							System.out.println("è¾“å…¥æœ‰è¯¯ï¼Œè¯·è¾“å…¥å¯¹åº”åå­—ï¼");
+							System.out.println("ÊäÈëÓĞÎó£¬ÇëÊäÈë¶ÔÓ¦Ãû×Ö£¡");
 							return;
 						}
 						break;
 					case 7:
-
 						try {
-							System.out.println("å›¾ä¹¦æ¨èï¼š");
+							System.out.println("Í¼ÊéÍÆ¼ö£º");
 							bookInfoService.recommend();
 						} catch (Exception e) {
 							// TODO: handle exception
 							return;
 						}
-
-
-
 						break;
 					case 0:
-						System.out.println("ç³»ç»Ÿé€€å‡º");
+						System.out.println("ÏµÍ³ÍË³ö");
 						return;
 					default:
-						System.out.println("ä½ çš„é€‰æ‹©æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥");
+						System.out.println("ÄãµÄÑ¡ÔñÓĞÎó£¬ÇëÖØĞÂÊäÈë");
 						break;
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
-				System.out.println("è¾“å…¥æœ‰è¯¯ï¼Œè¯·è¾“å…¥æ•°å­—ï¼");
+				System.out.println("ÊäÈëÓĞÎó£¬ÇëÊäÈëÊı×Ö£¡");
 				break;
 			}
 			
