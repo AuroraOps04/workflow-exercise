@@ -23,7 +23,6 @@ public class Menu {
     }
 
     Scanner input = new Scanner(System.in);
-
     // 选择菜单
     public void loadMenu(Shop shop) {
         boolean n = true;
@@ -31,6 +30,10 @@ public class Menu {
             showMenu(shop);
             System.out.print("请选择：");
             int choice = input.nextInt();
+            if (choice == 6) {
+                System.out.println("系统已退出");
+                break;
+	}
             switch (choice) {
                 case 1:
                     shop.initialBOOK1();
