@@ -11,9 +11,53 @@ import java.util.Random;
 
 public class BookDao {
 
-    public List<Book> getTotalBooks() {
-        return null;
+       /**
+     * 获取所有图书信息
+     *
+     * @return 图书集合
+     * @author 王康靖
+     */
+    public List<Book> getTotalBooks(){
+        ArrayList<Book> books = new ArrayList<>();
+        String queryStr = "select * from book";
+        Connection connection = DBconnection.getConnection();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(queryStr);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                books.add(new Book(resultSet.getString("bookname"),resultSet.getString("authorname"),resultSet.getBoolean("state")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return books;
     }
+
+
 
     /**
      * 添加图书
