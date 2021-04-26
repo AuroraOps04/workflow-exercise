@@ -214,7 +214,47 @@ public class BookDao {
         return books;
     }
 
-    public boolean updateState(String bookName, String authorName) {
-        return false;
+     /**
+     * 更新图书在架状态
+     *
+     * @param bookName   图书名
+     * @param authorName 作者名
+     * @return 更新状态是否成功
+     * @author 曾国桢
+     */
+    public boolean updateState(String bookName,String authorName){
+        String updateStr = "update book set state = abs(state-1) where bookname = ? and authorname = ?";
+        Connection connection = DBconnection.getConnection();
+        PreparedStatement preparedStatement = null;
+        boolean result = false;
+        try {
+            preparedStatement = connection.prepareStatement(updateStr);
+            preparedStatement.setString(1,bookName);
+            preparedStatement.setString(2,authorName);
+            int res = preparedStatement.executeUpdate();
+            if (res > 0) {
+                result = true;
+            }else{
+                result = false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return result;
     }
 }
