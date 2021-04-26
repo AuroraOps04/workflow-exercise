@@ -1,26 +1,22 @@
+package LibSys;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBconnection {
-
-    private static String url = "jdbc:mysql://localhost:3306/library?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
-
+public class Conn {
+    private static String url = "jdbc:mysql://localhost:3306/book?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false";
     private static String userName = "root";
-
     private static String passWord = "123456";
-
-    private static String driverName = "com.mysql.jdbc.Driver";
-
+    private static String driverName = "com.mysql.cj.jdbc.Driver";
     static {
-
         try {
             Class.forName(driverName);  //加载数据库驱动
+            System.out.println("加载数据库驱动");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
-
     public static Connection getConnection() {
         Connection connection = null;
         try {
@@ -30,16 +26,7 @@ public class DBconnection {
             e.printStackTrace();
             System.out.println("数据库连接失败");
         }
-
         return connection;
     }
 }
-
-class MainTest{
-    public static void main(String[] args) {
-        Connection connection=DBconnection.getConnection();
-    }
-}
-
-
 
