@@ -60,10 +60,10 @@ public class Shop {
 		System.out.print("请输入图书名称:");
 		String name = input.next();
 		int i = -1;
-		for (BOOK d : book) {
-			if (name.equals(d.getName())) {
+		for (BOOK b : book) {
+			if (name.equals(b.getName())) {
 				System.out.println("图书已存在，不能再添加该书籍！");
-				i = book.indexOf(d);
+				i = book.indexOf(b);
 			}
 		}
 		if (i < 0) {
