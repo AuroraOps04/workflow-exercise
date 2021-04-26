@@ -146,10 +146,11 @@ public class BookDao {
         String queryStr = "select * from book where bookname = ?";
         Connection connection = DBconnection.getConnection();
         PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
         try {
             preparedStatement = connection.prepareStatement(queryStr);
             preparedStatement.setString(1,bookName);
-            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 books.add(new Book(resultSet.getString("bookname"),resultSet.getString("authorname"),resultSet.getBoolean("state")));
             }
@@ -166,6 +167,13 @@ public class BookDao {
             if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -186,10 +194,11 @@ public class BookDao {
         String queryStr = "select * from book where authorname = ?";
         Connection connection = DBconnection.getConnection();
         PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
         try {
             preparedStatement = connection.prepareStatement(queryStr);
             preparedStatement.setString(1,authorName);
-            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 books.add(new Book(resultSet.getString("bookname"),resultSet.getString("authorname"),resultSet.getBoolean("state")));
             }
@@ -206,6 +215,13 @@ public class BookDao {
             if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
