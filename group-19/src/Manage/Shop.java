@@ -54,23 +54,31 @@ public class Shop {
 		}
 	}
 	
-	//新增BOOK
-	public void addBOOK() {
-		System.out.println("--->新增书籍");
-		System.out.print("请输入图书名称:");
+	//删除BOOK
+	public void deleteBOOK() {
+		System.out.println("--->删除书籍");
+		System.out.print("请输入删除图书名称:");
 		String name = input.next();
-		int i = -1;
+		int index = -1;
 		for (BOOK d : book) {
 			if (name.equals(d.getName())) {
-				System.out.println("图书已存在，不能再添加该书籍！");
-				i = book.indexOf(d);
+				index = book.indexOf(d);
+				if (d.getStatus().equals("已借出")) {
+					System.out.println("《" + name + "》" + "为借出状态，不能删除！");
+				}
 			}
 		}
-		if (i < 0) {
-			book.add(new BOOK(book.size() + 1, name, "可借", ""));
-			System.out.println("新增《" + name + "》成功!");
+		if (index < 0)
+			System.out.println("不存在该图书");
+		else {
+			book.remove(index);
+			System.out.println("删除《" + name + "》成功!");
 		}
 	}
+
+
+	
+
 
 
 }
