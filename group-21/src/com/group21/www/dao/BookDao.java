@@ -25,10 +25,30 @@ public class BookDao {
         return false;
     }
 
-
-    public List<Book> recommendedBooks() {
-        return null;
+    /**
+     * 推荐图书
+     *
+     * @return 推荐的图书的集合
+     * @author 蔡云龙
+     */
+    public List<Book> recommendedBooks(){
+        List<Book> totalBooks = getTotalBooks();
+        ArrayList<Book> books = new ArrayList<>();
+        HashSet<Integer> integers = new HashSet<>();
+        Random random = new Random();
+        int cnt = 0;
+        while (cnt == 0){
+            cnt = random.nextInt(totalBooks.size());
+        }
+        while (integers.size() < cnt) {
+            integers.add(random.nextInt(totalBooks.size()));
+        }
+        for (Integer integer : integers) {
+            books.add(totalBooks.get(integer));
+        }
+        return books;
     }
+
 
     /**
      * 根据书名查找图书
