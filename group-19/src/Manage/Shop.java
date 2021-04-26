@@ -102,6 +102,23 @@ public class Shop {
 			System.out.println(d.getId() +"\t" + d.getStatus() +"\t《" + d.getName() + "》\t" + d.getBorrowTime());
 		}
 	}
+	
+	
+	// 推荐书籍
+	public void BOOKRank() {
+		System.out.println("--->推荐书籍");
+		System.out.println( "    名称");
+		List<BOOK> books = new ArrayList<BOOK>();
+		books.addAll(bkk);
+		Collections.sort(books);
+		Collections.reverse(books);
+		for (BOOK d : books) {
+			System.out.println("《" + d.getName() + "》");
+		}
+	}
+
+
+
 
 
 	
