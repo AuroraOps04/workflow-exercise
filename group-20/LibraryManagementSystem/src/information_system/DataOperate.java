@@ -48,7 +48,7 @@ public class DataOperate {      //Model模型层 JDBC操作
         return flag;
     }
 	
-	public void selectall(){      //查看图书信息操作
+	public void selectall(){      //查看全部图书信息操作
 		String sql="select * from info";
 		try {
 			Statement statement = conn.createStatement();
@@ -68,7 +68,24 @@ public class DataOperate {      //Model模型层 JDBC操作
 		      
     }
 	public void insert(Book book){       //添加图书信息操作
-	
+		String id=book.getId();
+		String name=book.getName();
+        try{
+            PreparedStatement preparedStatement=conn.prepareStatement("insert into info value(?,?)");
+           preparedStatement.setString(1,id);
+           preparedStatement.setString(2,name);
+            int num=preparedStatement.executeUpdate();
+            if(num!=0){
+                System.out.println("添加成功！");
+            }
+            else{
+                System.out.println("添加失败！");
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("添加失败！");
+        }
     }
 	public void update(String id,String name){     //更新图书信息操作
 
