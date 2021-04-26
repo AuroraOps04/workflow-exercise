@@ -107,8 +107,18 @@ public class DataOperate {      //Model模型层 JDBC操作
             System.out.println("更新异常");
         }
     }
-	public void delete(String id){       //删除图书信息操作
-		
+	public void delete(String id){       //删除学生信息操作
+		try {
+            PreparedStatement preparedStatement=conn.prepareStatement("delete from info where id =?");
+            preparedStatement.setString(1,id);
+            int num=preparedStatement.executeUpdate();
+            if(num!=0){
+                System.out.println("删除成功！");
+            }
+            else System.out.println("未找到ID，删除失败！");
+        } catch (SQLException throwables) {
+            System.out.println("删除失败！");
+        }
     }
 	public void recommend(){       //图书推荐功能
 		String sql="select * from info";
