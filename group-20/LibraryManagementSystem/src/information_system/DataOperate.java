@@ -1,30 +1,33 @@
 package information_system;
 
+import java.awt.List;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.Scanner;
 
-public class DataOperate {      //ModelÄ£ĞÍ²ã JDBC²Ù×÷
+public class DataOperate {      //Modelæ¨¡å‹å±‚ JDBCæ“ä½œ
 	Connection conn=null;
 	Scanner input = new Scanner(System.in);
-	public DataOperate() { // ¹¹ÔìÊı¾İ¿â²Ù×÷¶ÔÏó£¬Í¬Ê±Á¬½ÓÊı¾İ¿â²¢·µ»Ø½á¹û  
+	public DataOperate() { // æ„é€ æ•°æ®åº“æ“ä½œå¯¹è±¡ï¼ŒåŒæ—¶è¿æ¥æ•°æ®åº“å¹¶è¿”å›ç»“æœ  
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			try {
 				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/book", "root", "123456");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				System.out.println("Á¬½ÓÊı¾İ¿âÊ§°Ü");
+				System.out.println("è¿æ¥æ•°æ®åº“å¤±è´¥");
 				e.printStackTrace();
 			}
 				
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Çı¶¯¼ÓÔØÊ§°Ü");
+			System.out.println("é©±åŠ¨åŠ è½½å¤±è´¥");
 			e.printStackTrace();
 		}
 	}
-	public boolean login(String username,String password){     //¹ÜÀíÔ±µÇÂ¼²Ù×÷
+	public boolean login(String username,String password){     //ç®¡ç†å‘˜ç™»å½•æ“ä½œ
 		boolean flag = false;
 		try {
             PreparedStatement preparedStatement=conn.prepareStatement("select pwd from user where username=? ");
@@ -40,30 +43,60 @@ public class DataOperate {      //ModelÄ£ĞÍ²ã JDBC²Ù×÷
                 }
             }
         } catch (SQLException throwables) {
-            System.out.println("µÇÂ¼Ê§°Ü£¡");
+            System.out.println("ç™»å½•å¤±è´¥ï¼");
         }
         return flag;
     }
 	
-	public void selectall(){      //²é¿´È«²¿Í¼ÊéĞÅÏ¢²Ù×÷
-
+	public void selectall(){      //æŸ¥çœ‹å…¨éƒ¨å›¾ä¹¦ä¿¡æ¯æ“ä½œ
+		String sql="select * from info";
+		try {
+			Statement statement = conn.createStatement();
+			ResultSet resultSet=null;
+	        resultSet=statement.executeQuery(sql);
+        	System.out.println("å›¾ä¹¦ID"+"\t"+"å§“å"+"\t");
+	        while (resultSet.next())
+            {	
+	        	System.out.print(resultSet.getString("id")+"\t");
+	        	System.out.print(resultSet.getString("name")+"\t");
+	        	System.out.println();
+            }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		      
     }
-	public void insert(Book book){       //Ìí¼ÓÍ¼ÊéĞÅÏ¢²Ù×÷
+	public void insert(Book book){       //æ·»åŠ å›¾ä¹¦ä¿¡æ¯æ“ä½œ
 	
     }
-	public void update(String id,String name){     //¸üĞÂÑ§ÉúĞÅÏ¢²Ù×÷
+	public void update(String id,String name){     //æ›´æ–°å›¾ä¹¦ä¿¡æ¯æ“ä½œ
 
     }
-	public void delete(String id){       //É¾³ıÑ§ÉúĞÅÏ¢²Ù×÷
+	public void delete(String id){       //åˆ é™¤å›¾ä¹¦ä¿¡æ¯æ“ä½œ
 		
     }
-	public void recommend(){       //¸ù¾İÑ§ºÅ²é¿´Ñ§ÉúĞÅÏ¢²Ù×÷
-		
-        
+	public void recommend(){       //å›¾ä¹¦æ¨èåŠŸèƒ½
+		String sql="select * from info";
+		try {
+			ArrayList<String> list = new ArrayList<String>();
+			Statement statement = conn.createStatement();
+			ResultSet resultSet=null;
+	        resultSet=statement.executeQuery(sql);
+	        while (resultSet.next())
+            {	
+	        	list.add(resultSet.getString("name"));	        	
+            }
+	        Random random = new Random();
+	        int n = random.nextInt(list.size());
+	        System.out.println(list.get(n));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}   
     }
 
-	public static boolean isNumber(String str){       //ÅĞ¶ÏÊäÈëÊÇ·ñÎªÊı×Ö
+	public static boolean isNumber(String str){       //åˆ¤æ–­è¾“å…¥æ˜¯å¦ä¸ºæ•°å­—
 	    for (int i = str.length();--i>=0;){ 
 	        if (!Character.isDigit(str.charAt(i))){
 	           return false;
