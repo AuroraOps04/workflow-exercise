@@ -77,6 +77,22 @@ public class Libary {
 
     public static void delete(ArrayList<String> books){
 //        周帮华
+        if(books.size()==0){
+            System.out.println("书库中无书籍，请添加后重试！");
+        } else {
+            System.out.println("请输入您要修改的书籍名称：");
+            Scanner sc = new Scanner(System.in);
+            String bookname = sc.next();
+            System.out.println("请输入您要修改的书籍位置：");
+            int position = sc.nextInt()-1;
+            if(position>=books.size()){
+                System.out.println("此位置无书籍！");
+            }else {
+                books.set(position,bookname);
+                System.out.println("修改成功！");
+            }
+        }
+    }
     }
 
     public static void set(ArrayList<String> books){
