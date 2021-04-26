@@ -87,8 +87,25 @@ public class DataOperate {      //Model模型层 JDBC操作
             System.out.println("添加失败！");
         }
     }
-	public void update(String id,String name){     //更新图书信息操作
+	public void update(String id,String name){     //更新学生信息操作
 
+        try {
+            String sql=null;
+            sql="update info set name=? where id=?";    
+            PreparedStatement preparedStatement=conn.prepareStatement(sql);
+            preparedStatement.setString(1,name);
+            preparedStatement.setString(2,id);
+
+            int num=preparedStatement.executeUpdate();
+            if(num==1){
+                System.out.println("更新成功！");
+            }
+            else{
+                System.out.println("更新不成功");
+            }
+        } catch (SQLException throwables) {
+            System.out.println("更新异常");
+        }
     }
 	public void delete(String id){       //删除图书信息操作
 		
