@@ -8,6 +8,30 @@ public class Func implements Funct {
     Conn conn = new Conn();
     Connection connection = conn.getConnection();
     public void add(String id, String name) {
+        try{
+            PreparedStatement preparedStatement=connection.prepareStatement("insert into book value(?,?)");
+            preparedStatement.setString(1,id);
+            preparedStatement.setString(2,name);
+            int num = preparedStatement.executeUpdate();
+            if(num!=0){
+                System.out.println("添加成功");
+            }
+            else{
+                System.out.println("添加失败");
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("添加失败");
+        }
+    }
+
+    @Override
+    public void delete(String id) {
+    }
+
+    @Override
+    public void update(String id, String name) {
     }
 
     @Override

@@ -11,6 +11,14 @@ public class Func implements Funct {
     }
 
     @Override
+    public void delete(String id) {
+    }
+
+    @Override
+    public void update(String id, String name) {
+    }
+
+    @Override
     public void select() {
         String sql = "select * from book";
         try {
