@@ -82,5 +82,28 @@ public class Func implements Funct {
 
     @Override
     public void recommend() {
+        String sql = "select * from book";
+        try {
+            ArrayList<String> list1 = new ArrayList<String>();
+            ArrayList<String> list2 = new ArrayList<String>();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = null;
+            resultSet = statement.executeQuery(sql);
+            System.out.printf("图书id"+"              "+"书名");
+            System.out.println();
+            while (resultSet.next())
+            {
+                list1.add(resultSet.getString("name"));
+                list2.add(resultSet.getString("id"));
+            }
+            Random random = new Random();
+            int n = random.nextInt(list2.size());
+            System.out.printf("%-20s",list1.get(n));
+            System.out.printf("%-20s",list2.get(n));
+            System.out.println();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 }
