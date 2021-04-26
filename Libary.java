@@ -67,6 +67,12 @@ public class Libary {
 
     public static void add(ArrayList<String> books){
 //        罗宇欣
+        System.out.println("请输入您要增加的书籍名称：");
+        Scanner sc = new Scanner(System.in);
+        String bookname = sc.next();
+        books.add(bookname);
+        System.out.println("您已成功加入新的书籍！");
+        showBooks(books);
     }
 
     public static void delete(ArrayList<String> books){
