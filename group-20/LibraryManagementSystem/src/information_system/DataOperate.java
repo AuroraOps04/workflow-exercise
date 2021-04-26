@@ -48,7 +48,7 @@ public class DataOperate {      //Model模型层 JDBC操作
         return flag;
     }
 	
-	public void selectall(){      //查看全部图书信息操作
+	public void selectall(){      //查看图书信息操作
 		String sql="select * from info";
 		try {
 			Statement statement = conn.createStatement();
