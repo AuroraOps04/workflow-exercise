@@ -2,8 +2,6 @@ package com.library.dao;
 
 import com.library.domain.Book;
 
-import java.sql.*;
-
 
 public class Database {
 
