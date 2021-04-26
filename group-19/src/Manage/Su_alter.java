@@ -1,30 +1,29 @@
 package Manage;
 import java.util.Scanner;
-//ĞŞ¸ÄÊé¼®
+//ä¿®æ”¹ä¹¦ç±
 public class Su_alter {
     Scanner input = new Scanner(System.in);
     public void alterBOOK() {
         BOOK ddd = new BOOK();
-        System.out.println("--->ĞŞ¸ÄBOOK");
-        System.out.println("ÇëÊäÈëÒªĞŞ¸ÄµÄÍ¼ÊéÃû³Æ£º");
+        System.out.println("--->ä¿®æ”¹BOOK");
+        System.out.println("è¯·è¾“å…¥è¦ä¿®æ”¹çš„å›¾ä¹¦åç§°ï¼š");
         String name7 = input.next();
         int i = -1;
         for (BOOK d : book) {
             if (name7.equals(d.getName())) {
-                System.out.println("ÇëÊäÈëÄãÒª¸üĞÂÍ¼ÊéµÄid£º");
+                System.out.println("è¯·è¾“å…¥ä½ è¦æ›´æ–°å›¾ä¹¦çš„idï¼š");
                 int id = input.nextInt();
                 ddd.setId(id);
-                System.out.println("ÇëÊäÈëÄãÒª¸üĞÂÍ¼ÊéµÄÃû³Æ£º");
+                System.out.println("è¯·è¾“å…¥ä½ è¦æ›´æ–°å›¾ä¹¦çš„åç§°ï¼š");
                 String name = input.next();
                 ddd.setName(name);
-                System.out.println("ÇëÊäÈëÄãÒª¸üĞÂBOOKµÄ½è³öÇé¿ö£º");
+                System.out.println("è¯·è¾“å…¥ä½ è¦æ›´æ–°BOOKçš„å€Ÿå‡ºæƒ…å†µï¼š");
                 String t = input.next();
                 ddd.setStatus(t);
-                System.out.println("ÇëÊäÈëÄãÒª¸üĞÂBOOKµÄ½è³öÊ±¼ä£º");
+                System.out.println("è¯·è¾“å…¥ä½ è¦æ›´æ–°BOOKçš„å€Ÿå‡ºæ—¶é—´ï¼š");
                 String time = input.next();
                 ddd.setBorrowTime(time);
                 book.set(book.indexOf(d),ddd);
-
             }
         }
     }
