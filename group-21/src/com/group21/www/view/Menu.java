@@ -45,21 +45,102 @@ public class Menu {
                     System.out.println("感谢您的使用，再见");
                     break flag;
                 case "5":
-                    bookService.recommendedBooks();
+                    List<Book> books = bookService.recommendedBooks();
+                    if (books == null || books.size() == 0) {
+                        System.out.println("无数据");
+                    } else {
+                        System.out.println("书名\t作者名\t在架状态");
+                        for (Book book : books) {
+                            System.out.println(book);
+                        }
+                    }
                     break;
                 case "4":
-                    bookService.updateState(bookName, authorName);
+                    System.out.print("请输入书名：");
+                    bookName = scanner.next();
+                    System.out.print("请输入作者名：");
+                    authorName = scanner.next();
+                    if (bookService.updateState(bookName, authorName)) {
+                        System.out.println("更新成功！");
+                    } else {
+                        System.out.println("更新失败！");
+                    }
                     break;
                 case "3":
-                    bookService.delBook(bookName, authorName);
+                    System.out.print("请输入书名：");
+                    bookName = scanner.next();
+                    System.out.print("请输入作者名：");
+                    authorName = scanner.next();
+                    if (bookService.delBook(bookName, authorName)) {
+                        System.out.println("删除成功！");
+                    } else {
+                        System.out.println("删除失败！");
+                    }
                     break;
                 case "2":
-                    bookService.addBook(bookName, authorName);
+                    System.out.print("请输入书名：");
+                    bookName = scanner.next();
+                    System.out.print("请输入作者名：");
+                    authorName = scanner.next();
+                    if (bookService.addBook(bookName, authorName)) {
+                        System.out.println("添加成功！");
+                    } else {
+                        System.out.println("添加失败！");
+                    }
                     break;
                 case "1":
-                    bookService.getTotalBooks();
+                    List<Book> totalBooks = bookService.getTotalBooks();
+                    if (totalBooks == null || totalBooks.size() == 0) {
+                        System.out.println("无数据");
+                    } else {
+                        System.out.println("书名\t作者名\t在架状态");
+                        for (Book book : totalBooks) {
+                            System.out.println(book);
+                        }
+                    }
                     break;
                 case "0":
+
+
+                    System.out.println("[1].按书名查找");
+                    System.out.println("[2].按作者名查找");
+                    System.out.print("请选择：");
+                    while (true) {
+                        choose = scanner.next();
+                        if ("".equals(choose) || !("1".equals(choose) || "2".equals(choose))) {
+                            System.out.println("输入有误，请重新输入：");
+                        } else {
+                            break;
+                        }
+                    }
+                    switch (choose) {
+                        case "1":
+                            System.out.print("请输入书名：");
+                            bookName = scanner.next();
+                            List<Book> bookByBookName = bookService.findBookByBookName(bookName);
+                            if (bookByBookName == null || bookByBookName.size() == 0) {
+                                System.out.println("无数据");
+                            } else {
+                                System.out.println("书名\t作者名\t在架状态");
+                                for (Book book : bookByBookName) {
+                                    System.out.println(book);
+                                }
+                            }
+                            break;
+                        case "2":
+                            System.out.print("请输入作者名：");
+                            authorName = scanner.next();
+                            List<Book> bookByAuthorName = bookService.findBookByAuthorName(authorName);
+                            if (bookByAuthorName == null || bookByAuthorName.size() == 0) {
+                                System.out.println("无数据");
+                            } else {
+                                System.out.println("书名\t作者名\t在架状态");
+                                for (Book book : bookByAuthorName) {
+                                    System.out.println(book);
+                                }
+                            }
+                            break;
+                    }
                     break;
             }
         }
