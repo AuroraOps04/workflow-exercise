@@ -18,8 +18,7 @@ public class BookDao {
     /**
      * 添加图书
      *
-     * @param bookName   图书名
-     * @param authorName 作者名
+     * @param book 图书对象
      * @return 增加图书是否成功
      * @author 陈棋
      */
