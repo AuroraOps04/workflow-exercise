@@ -29,26 +29,26 @@ public class Shop {
 	
 	//修改BOOK
 	public void alterBOOK() {
-		BOOK ddd = new BOOK();
+		BOOK bbb = new BOOK();
 		System.out.println("--->修改BOOK");
 		System.out.println("请输入要修改的图书名称：");
 		String name7 = input.next();
 		int i = -1;
-		for (BOOK d : book) {
-			if (name7.equals(d.getName())) {
+		for (BOOK b : book) {
+			if (name7.equals(b.getName())) {
 				System.out.println("请输入你要更新图书的id：");
 				int id = input.nextInt();
-				ddd.setId(id);
+				bbb.setId(id);
 				System.out.println("请输入你要更新图书的名称：");
 				String name = input.next();
-				ddd.setName(name);
+				bbb.setName(name);
 				System.out.println("请输入你要更新BOOK的借出情况：");
 				String t = input.next();
-				ddd.setStatus(t);
+				bbb.setStatus(t);
 				System.out.println("请输入你要更新BOOK的借出时间：");
 				String time = input.next();
-				ddd.setBorrowTime(time);
-				book.set(book.indexOf(d),ddd);
+				bbb.setBorrowTime(time);
+				book.set(book.indexOf(b),bbb);
 
 			}
 		}
