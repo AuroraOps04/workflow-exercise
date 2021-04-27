@@ -17,6 +17,18 @@ public class booklist {
     public booklist(){
 
     }
+    public void selectBook(){
+        System.out.println("---查找图书---");
+        System.out.print("请输入查找图书名称：");
+        String name = scanner.next();
+        for (book b:list) {
+            if (b.getName().equals(name)){
+                System.out.println("图书"+name+b.getInout());
+                return;
+            }
+        }
+        System.out.println("未找到该图书，请确认输入是否正确");
+    }
 
 
 
