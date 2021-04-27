@@ -42,7 +42,46 @@ public class booklist {
 
 
 
+    public void returnBook(){
+        System.out.println("---归还图书---");
+        System.out.print("请输入图书名称:");
+        String name = scanner.next();
+        for(book b:list){
+            if (b.getName().equals(name)){
+                if (b.isInout()){
+                    System.out.println("图书未借出，归还失败");
+                }else {
+                    b.setInout(true);
+                    b.setLendName(null);
+                    System.out.println("归还成功");
+                    return;
+                }
+            }
+        }
 
+    }
+    public void reviseBook(){
+        System.out.println("---修改图书---");
+        System.out.println("输入修改图书名称：");
+        String name = scanner.next();
+        for(book b:list){
+            if (b.getName().equals(name)){
+                System.out.println("输入修改后的图书名称：");
+                String rname = scanner.next();
+                b.setName(rname);
+                System.out.println("修改成功");
+            }
+        }
+        System.out.println("未找到该图书");
+    }
+    public void bookList(){
+        System.out.println("---图书清单---");
+        System.out.println("编号\t名称\t状态");
+        for (book b:list)
+        {
+            System.out.println(b.getId()+"\t" + b.getName()+"\t" + b.getInout()+"\t 借阅人："+b.getLendName());
+        }
+    }
     public void saveBook() {
         File file =new File("book.txt");
         Writer out;
