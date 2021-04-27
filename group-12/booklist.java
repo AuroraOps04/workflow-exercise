@@ -17,6 +17,16 @@ public class booklist {
     public booklist(){
 
     }
+    public void addBook() {
+        System.out.println("---新增图书---");
+        System.out.print("请输入图书名称：");
+        String Name = scanner.next();
+        int addid = list.size()+1;
+        book b = new book(Name,addid);
+        list.add(b);
+        System.out.println("新增《"+Name+"》成功！");
+    }
+
     public void selectBook(){
         System.out.println("---查找图书---");
         System.out.print("请输入查找图书名称：");
