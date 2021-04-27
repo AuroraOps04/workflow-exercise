@@ -39,7 +39,25 @@ public class booklist {
         }
         System.out.println("未找到该图书，请确认输入是否正确");
     }
-
+    public void deleteBook(){
+        System.out.println("---删除图书---");
+        System.out.print("请输入图书名称:");
+        String name = scanner.next();
+        for(book b:list) {
+            if (b.getName().equals(name)) {
+                if (b.isInout()){
+                    int index = list.indexOf(b);
+                    list.remove(index);
+                    System.out.println("删除成功");
+                    return;
+                }else {
+                    System.out.println("图书"+b.getName()+"已被"+b.getLendName()+"借出，不能删除");
+                    return;
+                }
+            }
+        }
+        System.out.println("删除失败");
+    }
 
 
     public void returnBook(){
