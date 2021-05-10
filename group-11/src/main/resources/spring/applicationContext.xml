@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="worker" >
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+    <context:property-placeholder location="classpath:config/jdbc.properties"/>
+
+    <!--    配置数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    <!-- 配置spring-mybatis整合-->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 引用数据源 -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 指定mybatis配置文件位置 -->
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+        <!-- 指定mapper.xml的位置（代替原来的批量注册）-->
+        <property name="mapperLocations" value="classpath*:mapper/BookMapper.xml"/>
+    </bean>
+    <!--     把每一个dao接口的实现加到ioc容器中-->
+        <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+            <!-- 指定dao接口的包-->
+            <property name="basePackage" value="worker.mapper"/>
+        </bean>
+</beans>
